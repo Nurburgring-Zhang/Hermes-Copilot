@@ -1,0 +1,702 @@
+[
+  {
+    "path": "AGENTS.md",
+    "size": 8794,
+    "sha256": "fb10f20a8e410b50"
+  },
+  {
+    "path": "SOUL.md",
+    "size": 15509,
+    "sha256": "ed0959d90b45b4c1"
+  },
+  {
+    "path": "agent/model_router.py",
+    "size": 10054,
+    "sha256": "a6256785a50ce7a5"
+  },
+  {
+    "path": "agent/monitor.py",
+    "size": 8040,
+    "sha256": "8af99dfbb8657f36"
+  },
+  {
+    "path": "agent/reflector.py",
+    "size": 12896,
+    "sha256": "b42f06c559585f01"
+  },
+  {
+    "path": "auto_engine/capability_registry.py",
+    "size": 21177,
+    "sha256": "f00c35afa232f899"
+  },
+  {
+    "path": "auto_engine/master_integration_hub.py",
+    "size": 19048,
+    "sha256": "c116451c2cad8bdc"
+  },
+  {
+    "path": "auto_engine/multi_agent_orchestrator.py",
+    "size": 15780,
+    "sha256": "ee565b27e137ea12"
+  },
+  {
+    "path": "auto_engine/self_evolution_engine.py",
+    "size": 30283,
+    "sha256": "98d4bf94c8c034c3"
+  },
+  {
+    "path": "config.yaml",
+    "size": 14959,
+    "sha256": "a748e6c459512370"
+  },
+  {
+    "path": "crontab.txt",
+    "size": 5657,
+    "sha256": "05c4a0f0ce6ae4a0"
+  },
+  {
+    "path": "evolution_v3/experience_engine.py",
+    "size": 17660,
+    "sha256": "048c5c5e666ce06a"
+  },
+  {
+    "path": "evolution_v3/information_fidelity_core.py",
+    "size": 20233,
+    "sha256": "d8139818f5dacc07"
+  },
+  {
+    "path": "evolution_v3/self_enhancement_v3_loop.py",
+    "size": 22650,
+    "sha256": "63d532b1f43a2497"
+  },
+  {
+    "path": "evolution_v3/seven_channel_memory.py",
+    "size": 23636,
+    "sha256": "f00403b24c8289f1"
+  },
+  {
+    "path": "evolution_v3/task_engine.py",
+    "size": 37370,
+    "sha256": "4fa5d5aa51540017"
+  },
+  {
+    "path": "evolution_v3/v3_daemon.py",
+    "size": 8606,
+    "sha256": "cda0359d1539bfa8"
+  },
+  {
+    "path": "hermes-agent/run_agent.py",
+    "size": 806399,
+    "sha256": "78dee91202273012"
+  },
+  {
+    "path": "hermes-agent/run_agent.py.bak.20260601_235202",
+    "size": 801911,
+    "sha256": "5bdeb02501577acc"
+  },
+  {
+    "path": "production_loop/agent_committee.py",
+    "size": 25017,
+    "sha256": "7f12a669391c3e22"
+  },
+  {
+    "path": "production_loop/dag_manager.py",
+    "size": 13052,
+    "sha256": "f7351874ddf73b9b"
+  },
+  {
+    "path": "production_loop/engine.py",
+    "size": 15486,
+    "sha256": "d853394f143776a1"
+  },
+  {
+    "path": "production_loop/loop_state.py",
+    "size": 24028,
+    "sha256": "ca82eeab1b62be52"
+  },
+  {
+    "path": "production_loop/main_loop.py",
+    "size": 25927,
+    "sha256": "89429f8af6762953"
+  },
+  {
+    "path": "production_loop/security.py",
+    "size": 16052,
+    "sha256": "20fb92827e917afa"
+  },
+  {
+    "path": "production_loop/verification.py",
+    "size": 29569,
+    "sha256": "da39288d14053a00"
+  },
+  {
+    "path": "reports/compression_version.json",
+    "size": 103,
+    "sha256": "1136d8bd6977521d"
+  },
+  {
+    "path": "reports/context_auto_assoc.json",
+    "size": 4468,
+    "sha256": "d3a472e0339090d3"
+  },
+  {
+    "path": "reports/context_index.json",
+    "size": 4090,
+    "sha256": "c5bf1c6c2a546d91"
+  },
+  {
+    "path": "reports/context_pack.json",
+    "size": 1217,
+    "sha256": "2d7af611601a19b1"
+  },
+  {
+    "path": "reports/context_sections/0__.md",
+    "size": 125,
+    "sha256": "902d6893ef8a4637"
+  },
+  {
+    "path": "reports/context_sections/5.md",
+    "size": 218,
+    "sha256": "508f6258e1c2faa0"
+  },
+  {
+    "path": "reports/context_sections/5大行为准则.md",
+    "size": 218,
+    "sha256": "508f6258e1c2faa0"
+  },
+  {
+    "path": "reports/context_sections/8__.md",
+    "size": 718,
+    "sha256": "4f76a186fa4185a7"
+  },
+  {
+    "path": "reports/context_sections/8条永久规则_压缩版_.md",
+    "size": 718,
+    "sha256": "4f76a186fa4185a7"
+  },
+  {
+    "path": "reports/context_sections/_05skill_manage.md",
+    "size": 336,
+    "sha256": "aef86472c2143172"
+  },
+  {
+    "path": "reports/context_sections/_1.md",
+    "size": 285,
+    "sha256": "1cbe3484ae9bdaaa"
+  },
+  {
+    "path": "reports/context_sections/_20260531__.md",
+    "size": 6127,
+    "sha256": "a4137b8763e7bd9a"
+  },
+  {
+    "path": "reports/context_sections/__20260531__.md",
+    "size": 395,
+    "sha256": "6e43d6905992afc6"
+  },
+  {
+    "path": "reports/context_sections/___.md",
+    "size": 366,
+    "sha256": "ca55cde464d3bb69"
+  },
+  {
+    "path": "reports/context_sections/_g8.md",
+    "size": 147,
+    "sha256": "38a5e3bfca591a2c"
+  },
+  {
+    "path": "reports/context_sections/_hymemory_p0_v20_llm_.md",
+    "size": 1689,
+    "sha256": "79aca8a329c1c184"
+  },
+  {
+    "path": "reports/context_sections/_llm.md",
+    "size": 322,
+    "sha256": "e6366cfb4dac0b8e"
+  },
+  {
+    "path": "reports/context_sections/_skills组合并行链式调用规则_格林主人最高指令_20260524固化_.md",
+    "size": 1427,
+    "sha256": "540e65ba770ffa2a"
+  },
+  {
+    "path": "reports/context_sections/_低分数据自动清理规则_格林主人最高指令_20260524固化_.md",
+    "size": 1061,
+    "sha256": "680cce8362197a99"
+  },
+  {
+    "path": "reports/context_sections/_备份规则.md",
+    "size": 407,
+    "sha256": "d80c43eef36cf0db"
+  },
+  {
+    "path": "reports/context_sections/_强制声明以下是hermes的底层设定在所有对话所有会话所有上下文中永久生效.md",
+    "size": 3557,
+    "sha256": "27e1566dc91f7993"
+  },
+  {
+    "path": "reports/context_sections/_强制步骤05每次skill_manage后自动验证门.md",
+    "size": 336,
+    "sha256": "aef86472c2143172"
+  },
+  {
+    "path": "reports/context_sections/_强制步骤1每次任务开始前全局检索.md",
+    "size": 285,
+    "sha256": "1cbe3484ae9bdaaa"
+  },
+  {
+    "path": "reports/context_sections/_章节索引_按需读取完整内容_.md",
+    "size": 366,
+    "sha256": "ca55cde464d3bb69"
+  },
+  {
+    "path": "reports/context_sections/_采集质量预筛规则_格林主人最高指令_20260524固化_.md",
+    "size": 948,
+    "sha256": "a4b7cbf8faf5737a"
+  },
+  {
+    "path": "reports/context_sections/_降级透明化llm降级必须明确告知.md",
+    "size": 322,
+    "sha256": "e6366cfb4dac0b8e"
+  },
+  {
+    "path": "reports/context_sections/_齿轮g8强制激活.md",
+    "size": 147,
+    "sha256": "38a5e3bfca591a2c"
+  },
+  {
+    "path": "reports/context_sections/camel_20260531__.md",
+    "size": 213,
+    "sha256": "7c92ef785edb30e0"
+  },
+  {
+    "path": "reports/context_sections/camel安全护栏规则_20260531_固化_.md",
+    "size": 213,
+    "sha256": "7c92ef785edb30e0"
+  },
+  {
+    "path": "reports/context_sections/skill_20260531__.md",
+    "size": 184,
+    "sha256": "33afdc8dcbf92845"
+  },
+  {
+    "path": "reports/context_sections/一核心身份.md",
+    "size": 181,
+    "sha256": "996652d58219ec64"
+  },
+  {
+    "path": "reports/context_sections/七关键文件索引.md",
+    "size": 1642,
+    "sha256": "3dcd0f56e9ed280c"
+  },
+  {
+    "path": "reports/context_sections/三九面人格_略见soul_extended_.md",
+    "size": 368,
+    "sha256": "7ee9d99f80c680c8"
+  },
+  {
+    "path": "reports/context_sections/三层反思结构化规则_20260531_固化_.md",
+    "size": 213,
+    "sha256": "5c01e9095b447d0f"
+  },
+  {
+    "path": "reports/context_sections/上下文压缩规则.md",
+    "size": 613,
+    "sha256": "5aa134fb85483081"
+  },
+  {
+    "path": "reports/context_sections/中断任务.md",
+    "size": 387,
+    "sha256": "98f04f2fd3e2e699"
+  },
+  {
+    "path": "reports/context_sections/九_oi项目全量优化增强方案固化_格林主人最高指令_20260524_固化_.md",
+    "size": 9492,
+    "sha256": "6ec45a44ad344b21"
+  },
+  {
+    "path": "reports/context_sections/二永久禁令_格林主人最高指令_.md",
+    "size": 897,
+    "sha256": "bac3a3553b4d394d"
+  },
+  {
+    "path": "reports/context_sections/五multiagent调度.md",
+    "size": 619,
+    "sha256": "b2c5d461ce09c73d"
+  },
+  {
+    "path": "reports/context_sections/八_七条永久执行规则_格林主人最高指令_20260523_固化_.md",
+    "size": 6162,
+    "sha256": "ba1906ed9adf3e6d"
+  },
+  {
+    "path": "reports/context_sections/六pipeline_v4_流水线_项目级产物_.md",
+    "size": 1047,
+    "sha256": "e46e571ac768e2cc"
+  },
+  {
+    "path": "reports/context_sections/四5大行为准则.md",
+    "size": 823,
+    "sha256": "7478a5e703aa9cd2"
+  },
+  {
+    "path": "reports/context_sections/复盘反思规则_格林主人最高指令_20260531_固化_.md",
+    "size": 395,
+    "sha256": "6e43d6905992afc6"
+  },
+  {
+    "path": "reports/context_sections/工具.md",
+    "size": 354,
+    "sha256": "b7ff3684736e0823"
+  },
+  {
+    "path": "reports/context_sections/执行质量墙规则_20260531_固化_.md",
+    "size": 175,
+    "sha256": "fa71bde2f4663953"
+  },
+  {
+    "path": "reports/context_sections/推送系统优化规则_20260531_固化_.md",
+    "size": 6127,
+    "sha256": "a4137b8763e7bd9a"
+  },
+  {
+    "path": "reports/context_sections/永久禁令.md",
+    "size": 1644,
+    "sha256": "4e05f0c50e6928b8"
+  },
+  {
+    "path": "reports/context_sections/自动调优规则_20260531_固化_.md",
+    "size": 241,
+    "sha256": "a186e3f036199a88"
+  },
+  {
+    "path": "reports/context_sections/规则0_自主基线_.md",
+    "size": 125,
+    "sha256": "902d6893ef8a4637"
+  },
+  {
+    "path": "reports/context_sections/证据驱动skill进化规则_20260531_固化_.md",
+    "size": 184,
+    "sha256": "33afdc8dcbf92845"
+  },
+  {
+    "path": "reports/context_sections/长链任务上下文管理_hymemory_p0_.md",
+    "size": 783,
+    "sha256": "e059cc8645830d00"
+  },
+  {
+    "path": "reports/context_sections/长链任务上下文管理_hymemory_p0_v20_llm全驱动_.md",
+    "size": 1689,
+    "sha256": "79aca8a329c1c184"
+  },
+  {
+    "path": "reports/context_sections/零_齿轮强制恢复协议_v31__互啮互审8步硬编码_不可绕过_.md",
+    "size": 4663,
+    "sha256": "cb1016a37a713cdb"
+  },
+  {
+    "path": "reports/cross_session_cache.json",
+    "size": 190,
+    "sha256": "9abe561a4dd283dd"
+  },
+  {
+    "path": "reports/surgical_context.json",
+    "size": 2182,
+    "sha256": "aca6d5815f9d4ba5"
+  },
+  {
+    "path": "scripts/agent_company_engine.py",
+    "size": 18834,
+    "sha256": "e716318a002e3264"
+  },
+  {
+    "path": "scripts/agent_company_intel_bridge.py",
+    "size": 2807,
+    "sha256": "d6187fb42bb0f967"
+  },
+  {
+    "path": "scripts/agent_company_runner.py",
+    "size": 29895,
+    "sha256": "92030bd9166fc09b"
+  },
+  {
+    "path": "scripts/agent_enhancement_manager.py",
+    "size": 52546,
+    "sha256": "970779a0853b89f7"
+  },
+  {
+    "path": "scripts/agent_enhancement_plugin.py",
+    "size": 8630,
+    "sha256": "5c823959930c6d5a"
+  },
+  {
+    "path": "scripts/auto_cleaner.py",
+    "size": 19623,
+    "sha256": "bc46f7e93d74b684"
+  },
+  {
+    "path": "scripts/auto_healer.py",
+    "size": 22341,
+    "sha256": "bf58f8b40b939d8e"
+  },
+  {
+    "path": "scripts/auto_recall.py",
+    "size": 15175,
+    "sha256": "2dda922efd767eef"
+  },
+  {
+    "path": "scripts/checkpoint_recorder.py",
+    "size": 3340,
+    "sha256": "217fdfc4d1a27335"
+  },
+  {
+    "path": "scripts/consistency_guard.py",
+    "size": 6089,
+    "sha256": "7633de422c678c3d"
+  },
+  {
+    "path": "scripts/context_auto_assoc.py",
+    "size": 9987,
+    "sha256": "8ef8102566730c5d"
+  },
+  {
+    "path": "scripts/context_failsafe.py",
+    "size": 9088,
+    "sha256": "1aed34a6bfe4ca2e"
+  },
+  {
+    "path": "scripts/context_index_system.py",
+    "size": 11293,
+    "sha256": "8e05bc17d8aa56a0"
+  },
+  {
+    "path": "scripts/context_packer.py",
+    "size": 13281,
+    "sha256": "bb0585f6084b8f3b"
+  },
+  {
+    "path": "scripts/context_reconstructor.py",
+    "size": 7561,
+    "sha256": "5070e32b4c1f22e8"
+  },
+  {
+    "path": "scripts/context_selfcheck.py",
+    "size": 7203,
+    "sha256": "01ef100471455410"
+  },
+  {
+    "path": "scripts/cross_session_cache.py",
+    "size": 7610,
+    "sha256": "701b22802cd21855"
+  },
+  {
+    "path": "scripts/dod_checklist.py",
+    "size": 14588,
+    "sha256": "c1cae01beaf25ec8"
+  },
+  {
+    "path": "scripts/emergency_compressor.py",
+    "size": 10029,
+    "sha256": "0b40ccbbf4f8db85"
+  },
+  {
+    "path": "scripts/engine_core.py",
+    "size": 40455,
+    "sha256": "f0d4868a0a641d56"
+  },
+  {
+    "path": "scripts/episodic_injector.py",
+    "size": 10933,
+    "sha256": "2d154dd31c7c671a"
+  },
+  {
+    "path": "scripts/experience_extractor.py",
+    "size": 22814,
+    "sha256": "ef7774e004582ca2"
+  },
+  {
+    "path": "scripts/feedback_push.py",
+    "size": 2837,
+    "sha256": "fc7645ae31f8ca1c"
+  },
+  {
+    "path": "scripts/forced_executor.py",
+    "size": 21780,
+    "sha256": "5ea20ad0d53cc9ae"
+  },
+  {
+    "path": "scripts/gear_enforcer.py",
+    "size": 38595,
+    "sha256": "5fc2fcb9313361b4"
+  },
+  {
+    "path": "scripts/gear_master.py",
+    "size": 8417,
+    "sha256": "823fdd3f2f5da762"
+  },
+  {
+    "path": "scripts/gear_task_validator.py",
+    "size": 20184,
+    "sha256": "190bfbd368a9069c"
+  },
+  {
+    "path": "scripts/gear_vault.py",
+    "size": 11564,
+    "sha256": "53b71732b9f0a10f"
+  },
+  {
+    "path": "scripts/generate_final_report.py",
+    "size": 2579,
+    "sha256": "a722000374becdf9"
+  },
+  {
+    "path": "scripts/gepa_variator.py",
+    "size": 19204,
+    "sha256": "7cc5018f49b327c4"
+  },
+  {
+    "path": "scripts/hermes_auto_tune.py",
+    "size": 19874,
+    "sha256": "83dae3ad510c3d43"
+  },
+  {
+    "path": "scripts/hermes_camel_guard.py",
+    "size": 17436,
+    "sha256": "dfa5137d7807d8ef"
+  },
+  {
+    "path": "scripts/hermes_multi_agent_orchestrator.py",
+    "size": 24716,
+    "sha256": "153f392b0dd1aeb2"
+  },
+  {
+    "path": "scripts/hermes_retrospect.py",
+    "size": 48857,
+    "sha256": "059f84aae57d07c2"
+  },
+  {
+    "path": "scripts/hermes_self_evolve_cluster.py",
+    "size": 36970,
+    "sha256": "43893dda49815a28"
+  },
+  {
+    "path": "scripts/hermes_skill_evolver.py",
+    "size": 24215,
+    "sha256": "6882923fc9562be8"
+  },
+  {
+    "path": "scripts/hy_memory_orchestrator.py",
+    "size": 10378,
+    "sha256": "d4f86b32088fc9b0"
+  },
+  {
+    "path": "scripts/l1_extractor.py",
+    "size": 29736,
+    "sha256": "e1653d3f3901c8c6"
+  },
+  {
+    "path": "scripts/l2_scene_scheduler.py",
+    "size": 16111,
+    "sha256": "18d5714fd243b8c6"
+  },
+  {
+    "path": "scripts/l3_persona_scheduler.py",
+    "size": 16847,
+    "sha256": "a8cfa5ad69fff615"
+  },
+  {
+    "path": "scripts/long_task_guardian.py",
+    "size": 10151,
+    "sha256": "e1e951e54570a15a"
+  },
+  {
+    "path": "scripts/lossless_claw.py",
+    "size": 13136,
+    "sha256": "e84213fb1f34c86b"
+  },
+  {
+    "path": "scripts/mermaid_builder.py",
+    "size": 7958,
+    "sha256": "15eddf3a02c8ae65"
+  },
+  {
+    "path": "scripts/meta_thinker.py",
+    "size": 13805,
+    "sha256": "2c7fd5039e796408"
+  },
+  {
+    "path": "scripts/production_loop_cron.py",
+    "size": 5548,
+    "sha256": "f36b4939ed6b33c8"
+  },
+  {
+    "path": "scripts/reflexion_engine.py",
+    "size": 17912,
+    "sha256": "117c6e668a59b7bd"
+  },
+  {
+    "path": "scripts/restore_run_agent.py",
+    "size": 2816,
+    "sha256": "ddfa430926619b0b"
+  },
+  {
+    "path": "scripts/segment_manager.py",
+    "size": 12878,
+    "sha256": "abba9c1edfddbeee"
+  },
+  {
+    "path": "scripts/session_init_check.py",
+    "size": 4604,
+    "sha256": "8db80c63b71ac55f"
+  },
+  {
+    "path": "scripts/skillopt_trainer.py",
+    "size": 26795,
+    "sha256": "6c9e608989696591"
+  },
+  {
+    "path": "scripts/status_reporter.py",
+    "size": 12059,
+    "sha256": "f0fa86367506a932"
+  },
+  {
+    "path": "scripts/surgical_context_slicer.py",
+    "size": 16138,
+    "sha256": "c001ceaf4e2a7021"
+  },
+  {
+    "path": "scripts/system_deep_audit.py",
+    "size": 17703,
+    "sha256": "d202b509a188c04f"
+  },
+  {
+    "path": "scripts/task_boundary.py",
+    "size": 13139,
+    "sha256": "701602959052e5c4"
+  },
+  {
+    "path": "scripts/task_queue_manager.py",
+    "size": 9013,
+    "sha256": "f98ca3613a9baee6"
+  },
+  {
+    "path": "scripts/tool_unloader.py",
+    "size": 10959,
+    "sha256": "6a912f6384fe0e5b"
+  },
+  {
+    "path": "scripts/tr_gate.py",
+    "size": 16088,
+    "sha256": "1dfbcb31a6a5cf20"
+  },
+  {
+    "path": "scripts/wake_guide.py",
+    "size": 9618,
+    "sha256": "6356d59c8e2ea458"
+  },
+  {
+    "path": "scripts/wake_injector.py",
+    "size": 8223,
+    "sha256": "139d0e35a61b4381"
+  }
+]

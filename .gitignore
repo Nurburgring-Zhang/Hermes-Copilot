@@ -1,0 +1,12 @@
+# 忽略文件
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.log
+logs/
+*.db
+*.sqlite
+memory/
+.DS_Store
+Thumbs.db

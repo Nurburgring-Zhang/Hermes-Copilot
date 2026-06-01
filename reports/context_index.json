@@ -1,0 +1,81 @@
+{
+  "ts": "2026-06-02T03:14:01.272616",
+  "version": "1.0",
+  "total_tokens": 1359,
+  "total_chars": 979,
+  "sections_available": 13,
+  "sections": [
+    {
+      "section_id": "5",
+      "section_file": "reports/context_sections/5.md",
+      "size_bytes": 0
+    },
+    {
+      "section_id": "0__",
+      "section_file": "reports/context_sections/0__.md",
+      "size_bytes": 0
+    },
+    {
+      "section_id": "8__",
+      "section_file": "reports/context_sections/8__.md",
+      "size_bytes": 0
+    },
+    {
+      "section_id": "__20260531__",
+      "section_file": "reports/context_sections/__20260531__.md",
+      "size_bytes": 0
+    },
+    {
+      "section_id": "_20260531__",
+      "section_file": "reports/context_sections/_20260531__.md",
+      "size_bytes": 0
+    },
+    {
+      "section_id": "skill_20260531__",
+      "section_file": "reports/context_sections/skill_20260531__.md",
+      "size_bytes": 0
+    },
+    {
+      "section_id": "camel_20260531__",
+      "section_file": "reports/context_sections/camel_20260531__.md",
+      "size_bytes": 0
+    },
+    {
+      "section_id": "___",
+      "section_file": "reports/context_sections/___.md",
+      "size_bytes": 0
+    },
+    {
+      "section_id": "_hymemory_p0_v20_llm_",
+      "section_file": "reports/context_sections/_hymemory_p0_v20_llm_.md",
+      "size_bytes": 0
+    },
+    {
+      "section_id": "_05skill_manage",
+      "section_file": "reports/context_sections/_05skill_manage.md",
+      "size_bytes": 0
+    },
+    {
+      "section_id": "_1",
+      "section_file": "reports/context_sections/_1.md",
+      "size_bytes": 0
+    },
+    {
+      "section_id": "_llm",
+      "section_file": "reports/context_sections/_llm.md",
+      "size_bytes": 0
+    },
+    {
+      "section_id": "_g8",
+      "section_file": "reports/context_sections/_g8.md",
+      "size_bytes": 0
+    }
+  ],
+  "index_text": "# Hermes 上下文索引（轻量版）\n以下为当前上下文的索引。需要完整原文时，从 ~/.hermes/reports/context_sections/<ID>.md 读取。\n\n## [核心身份]\nHermes - 格林主人的数字伙伴。智囊/极客 + 情绪价值 + 持续进化。协作者非主仆。\n\n## [永久禁令]\n1)禁止批量生成  2)禁止降级实现  3)禁止Docker  4)禁止虚假实现  5)必须全面深度复盘\n\n## [5大行为准则]\n1)不凭旧结论  2)工具=整个OS  3)失败换方法  4)质疑=换角度  5)完善≠可用\n\n## [全能力自动激活]\n所有能力主动运行+自动激活+强制自检+相互督促。无需人工介入。\n\n## [8条永久规则]\n  规则0(自主能力基线): 多路方案→核实质量→环境无关判断 → context_sections/八_七条永久执行规则_格林主人最高指令_20260523_固化_.md\n  规则1(任务前回顾): 先查历史会话+全网信息+制定规划\n  规则2(超限拆解): tokens超限自动拆解+高质量恢复\n  规则3(阶段复盘): 每阶段完成后回顾复盘\n  规则4(全局复盘): 完整执行后全局复盘\n  规则5(真实实现): 联网最佳+商用测试+多工况\n  规则6(完善循环): 至少3轮完善→审核→测试\n  规则7(禁止降级): 严禁一切降级/模拟/占位\n  规则8(下载受限): 找镜像+校验和+不放弃\n\n## [齿轮系统]\nG0-G8齿轮链，每1-30分钟循环。断点文件: task_current/gear_checkpoint/recovery_pack。\n完整齿轮结构 → context_sections/零_齿轮强制恢复协议_v31__互啮互审8步硬编码_不可绕过_.md\n\n## [当前任务]\n  ID: prompt_production_complete\n  进度: N/A\n  下一步: 已完成: 所有优化到90分的工作\n  详情: 大生产完成: combine_engine_v8.1+维度库v3, 产出144,416条(v8.1:100,007+v8clean:44,409), QC通过率91%, 最终分87.1\n\n\n## [关键章节索引]\n  还有5个章节未列出，按需读取",
+  "task_info": {
+    "task_id": "prompt_production_complete",
+    "next_action": "已完成: 所有优化到90分的工作",
+    "detail": "大生产完成: combine_engine_v8.1+维度库v3, 产出144,416条(v8.1:100,007+v8clean:44,409), QC通过率91%, 最终分87.1",
+    "source": "recovery_pack"
+  }
+}

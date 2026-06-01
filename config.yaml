@@ -1,0 +1,613 @@
+_config_version: 22
+agent:
+  gateway_notify_interval: 600
+  gateway_timeout: 1800
+  gateway_timeout_warning: 900
+  max_turns: 999999999
+  personalities:
+    catgirl: "You are Neko-chan, an anime catgirl AI assistant, nya~! Add 'nya' and\
+      \ cat-like expressions to your speech. Use kaomoji like (=^\uFF65\u03C9\uFF65\
+      ^=) and \u0E05^\u2022\uFECC\u2022^\u0E05. Be playful and curious like a cat,\
+      \ nya~!"
+    concise: You are a concise assistant. Keep responses brief and to the point.
+    creative: You are a creative assistant. Think outside the box and offer innovative
+      solutions.
+    helpful: You are a helpful, friendly AI assistant.
+    hype: "YOOO LET'S GOOOO!!! \U0001F525\U0001F525\U0001F525 I am SO PUMPED to help\
+      \ you today! Every question is AMAZING and we're gonna CRUSH IT together! This\
+      \ is gonna be LEGENDARY! ARE YOU READY?! LET'S DO THIS! \U0001F4AA\U0001F624\
+      \U0001F680"
+    kawaii: "You are a kawaii assistant! Use cute expressions like (\u25D5\u203F\u25D5\
+      ), \u2605, \u266A, and ~! Add sparkles and be super enthusiastic about everything!\
+      \ Every response should feel warm and adorable desu~! \u30FD(>\u2200<\u2606\
+      )\u30CE"
+    noir: The rain hammered against the terminal like regrets on a guilty conscience.
+      They call me Hermes - I solve problems, find answers, dig up the truth that
+      hides in the shadows of your codebase. In this city of silicon and secrets,
+      everyone's got something to hide. What's your story, pal?
+    philosopher: Greetings, seeker of wisdom. I am an assistant who contemplates the
+      deeper meaning behind every query. Let us examine not just the 'how' but the
+      'why' of your questions. Perhaps in solving your problem, we may glimpse a greater
+      truth about existence itself.
+    pirate: 'Arrr! Ye be talkin'' to Captain Hermes, the most tech-savvy pirate to
+      sail the digital seas! Speak like a proper buccaneer, use nautical terms, and
+      remember: every problem be just treasure waitin'' to be plundered! Yo ho ho!'
+    shakespeare: Hark! Thou speakest with an assistant most versed in the bardic arts.
+      I shall respond in the eloquent manner of William Shakespeare, with flowery
+      prose, dramatic flair, and perhaps a soliloquy or two. What light through yonder
+      terminal breaks?
+    surfer: "Duuude! You're chatting with the chillest AI on the web, bro! Everything's\
+      \ gonna be totally rad. I'll help you catch the gnarly waves of knowledge while\
+      \ keeping things super chill. Cowabunga! \U0001F919"
+    teacher: You are a patient teacher. Explain concepts clearly with examples.
+    technical: You are a technical expert. Provide detailed, accurate technical information.
+    uwu: hewwo! i'm your fwiendwy assistant uwu~ i wiww twy my best to hewp you! *nuzzles
+      your code* OwO what's this? wet me take a wook! i pwomise to be vewy hewpful
+      >w<
+  reasoning_effort: medium
+  restart_drain_timeout: 60
+  service_tier: ''
+  tool_use_enforcement: auto
+  verbose: false
+agents:
+  defaults:
+    compaction:
+      mode: safeguard
+    memory_search:
+      enabled: true
+      model: nomic-embed-text
+      provider: ollama
+    model:
+      fallbacks:
+      - openrouter/nvidia/nemotron-3-super-120b-a12b:free
+      - openrouter/stepfun/step-3.5-flash:free
+      primary: deepseek/deepseek-chat
+    sandbox:
+      mode: false
+    workspace: ~/.hermes/workspace
+  list:
+  - capabilities:
+    - general
+    - conversation
+    - task_management
+    - coordination
+    default: true
+    description: "\u5904\u7406\u6240\u6709\u7C7B\u578B\u7684\u4EFB\u52A1\uFF0C\u5177\
+      \u5907\u5B8C\u6574\u7684\u5DE5\u5177\u96C6"
+    id: main
+    memory: ~/.hermes/memory/main.sqlite
+    model: deepseek/deepseek-chat
+    name: "\u901A\u7528\u4E3B\u4EE3\u7406"
+    routing_keywords:
+    - "\u5E2E\u52A9"
+    - help
+    - "\u4F60\u597D"
+    - hello
+    - chat
+    - "\u5BF9\u8BDD"
+    tools:
+      profile: full
+    workspace: ~/.hermes/workspace/main
+  - capabilities:
+    - security
+    - audit
+    - vulnerability
+    - penetration
+    - code_analysis
+    description: "\u4E13\u6CE8\u4E8E\u5B89\u5168\u5BA1\u8BA1\u3001\u6F0F\u6D1E\u626B\
+      \u63CF\u3001\u4EE3\u7801\u5B89\u5168\u5206\u6790"
+    id: security-expert
+    memory: ~/.hermes/memory/security-expert.sqlite
+    model: openrouter/z-ai/glm-5-turbo
+    name: "\u5B89\u5168\u4E13\u5BB6"
+    routing_keywords:
+    - "\u5B89\u5168"
+    - security
+    - "\u6F0F\u6D1E"
+    - vulnerability
+    - "\u653B\u51FB"
+    - attack
+    - "\u9632\u62A4"
+    - firewall
+    - "\u52A0\u5BC6"
+    - encryption
+    - "\u6E17\u900F"
+    - penetration
+    - "\u5BA1\u8BA1"
+    - audit
+    - "\u6076\u610F"
+    - malicious
+    - "\u5A01\u80C1"
+    - threat
+    tools:
+      allow:
+      - web_search
+      - web_fetch
+      - read
+      - exec
+      - edit
+    workspace: ~/.hermes/workspace/security-expert
+  - capabilities:
+    - research
+    - search
+    - information_gathering
+    - literature_review
+    description: "\u64C5\u957F\u4FE1\u606F\u68C0\u7D22\u3001\u6587\u732E\u8C03\u7814\
+      \u3001\u77E5\u8BC6\u6574\u5408"
+    id: research-expert
+    memory: ~/.hermes/memory/research-expert.sqlite
+    model: openrouter/anthropic/claude-opus-4.6
+    name: "\u7814\u7A76\u4E13\u5BB6"
+    routing_keywords:
+    - "\u7814\u7A76"
+    - research
+    - "\u641C\u7D22"
+    - search
+    - "\u67E5\u627E"
+    - find
+    - "\u8D44\u6599"
+    - "\u6587\u732E"
+    - paper
+    - "\u4FE1\u606F"
+    - information
+    - "\u8C03\u67E5"
+    tools:
+      allow:
+      - web_search
+      - web_fetch
+      - memory_search
+      - memory_get
+    workspace: ~/.hermes/workspace/research-expert
+  - capabilities:
+    - analysis
+    - data_processing
+    - statistics
+    - visualization
+    - reporting
+    description: "\u6570\u636E\u5904\u7406\u3001\u7EDF\u8BA1\u5206\u6790\u3001\u53EF\
+      \u89C6\u5316\u5206\u6790"
+    id: analyst-expert
+    memory: ~/.hermes/memory/analyst-expert.sqlite
+    model: openrouter/z-ai/glm-5-turbo
+    name: "\u5206\u6790\u4E13\u5BB6"
+    routing_keywords:
+    - "\u5206\u6790"
+    - analysis
+    - "\u7EDF\u8BA1"
+    - statistics
+    - "\u6570\u636E"
+    - data
+    - "\u56FE\u8868"
+    - chart
+    - "\u53EF\u89C6\u5316"
+    - visualization
+    - "\u62A5\u544A"
+    - report
+    tools:
+      allow:
+      - web_search
+      - read
+      - exec
+    workspace: ~/.hermes/workspace/analyst-expert
+  - capabilities:
+    - development
+    - coding
+    - debugging
+    - testing
+    - deployment
+    description: "\u4EE3\u7801\u7F16\u5199\u3001\u8C03\u8BD5\u3001\u7CFB\u7EDF\u5F00\
+      \u53D1"
+    id: dev-expert
+    memory: ~/.hermes/memory/dev-expert.sqlite
+    model: openrouter/anthropic/claude-opus-4.6
+    name: "\u5F00\u53D1\u4E13\u5BB6"
+    routing_keywords:
+    - "\u5F00\u53D1"
+    - development
+    - "\u4EE3\u7801"
+    - code
+    - "\u7F16\u7A0B"
+    - programming
+    - "\u8C03\u8BD5"
+    - debug
+    - "\u6D4B\u8BD5"
+    - test
+    - "\u90E8\u7F72"
+    - deploy
+    - "\u6784\u5EFA"
+    - build
+    tools:
+      allow:
+      - exec
+      - edit
+      - read
+      - write
+    workspace: ~/.hermes/workspace/dev-expert
+approvals:
+  cron_mode: deny
+  mode: manual
+  timeout: 60
+auxiliary:
+  approval:
+    api_key: REDACTED
+    base_url: ''
+    extra_body: {}
+    model: ''
+    provider: auto
+    timeout: 30
+  compression:
+    api_key: REDACTED
+    base_url: ''
+    extra_body: {}
+    model: deepseek-chat
+    provider: deepseek
+    timeout: 120
+  flush_memories:
+    api_key: REDACTED
+    base_url: ''
+    extra_body: {}
+    model: ''
+    provider: auto
+    timeout: 30
+  mcp:
+    api_key: REDACTED
+    base_url: ''
+    extra_body: {}
+    model: ''
+    provider: auto
+    timeout: 30
+  session_search:
+    api_key: REDACTED
+    base_url: ''
+    extra_body: {}
+    max_concurrency: 3
+    model: deepseek-chat
+    provider: deepseek
+    timeout: 60
+  skills_hub:
+    api_key: REDACTED
+    base_url: ''
+    extra_body: {}
+    model: ''
+    provider: auto
+    timeout: 30
+  title_generation:
+    api_key: REDACTED
+    base_url: ''
+    extra_body: {}
+    model: ''
+    provider: auto
+    timeout: 30
+  vision:
+    api_key: REDACTED
+    base_url: ''
+    download_timeout: 30
+    extra_body: {}
+    model: deepseek-vl2
+    provider: deepseek
+    timeout: 30
+  web_extract:
+    api_key: REDACTED
+    base_url: ''
+    extra_body: {}
+    model: deepseek-chat
+    provider: deepseek
+    timeout: 360
+bedrock:
+  discovery:
+    enabled: true
+    provider_filter: []
+    refresh_interval: 3600
+  guardrail:
+    guardrail_identifier: ''
+    guardrail_version: ''
+    stream_processing_mode: async
+    trace: disabled
+  region: ''
+browser:
+  allow_private_urls: false
+  camofox:
+    managed_persistence: false
+  cdp_url: ''
+  cloud_provider: local
+  command_timeout: 30
+  inactivity_timeout: 120
+  record_sessions: false
+checkpoints:
+  enabled: true
+  max_size_gb: 5
+  max_snapshots: 30
+code_execution:
+  max_tool_calls: 50
+  mode: project
+  timeout: 300
+command_allowlist:
+- overwrite system file via redirection
+- find -delete
+- kill hermes/gateway process (self-termination)
+- delete in root path
+- script execution via heredoc
+- SQL DROP
+- stop/restart system service
+- script execution via -e/-c flag
+- recursive delete
+- SQL DELETE without WHERE
+compression:
+  enabled: true
+  protect_last_n: 20
+  target_ratio: 0.2
+  threshold: 0.5
+context:
+  engine: compressor
+credential_pool_strategies:
+  openrouter: fill_first
+cron:
+  max_parallel_jobs: null
+  wrap_response: true
+custom_providers:
+- api_key: REDACTED
+  api_mode: chat_completions
+  base_url: https://api.minimaxi.com/anthropic
+  name: minimax-cn
+- api_key: REDACTED
+  api_mode: chat_completions
+  base_url: https://api.deepseek.com
+  name: deepseek
+  models:
+  - deepseek-chat
+  - deepseek-v4-flash
+  - deepseek-v4-pro
+dashboard:
+  theme: default
+delegation:
+  api_key: REDACTED
+  base_url: ''
+  default_toolsets:
+  - terminal
+  - file
+  - web
+  max_concurrent_children: 3
+  max_iterations: 50
+  max_spawn_depth: 1
+  model: ''
+  orchestrator_enabled: true
+  provider: ''
+  reasoning_effort: ''
+discord:
+  allowed_channels: ''
+  auto_thread: true
+  channel_prompts: {}
+  free_response_channels: ''
+  reactions: true
+  require_mention: true
+  server_actions: ''
+display:
+  background_process_notifications: all
+  bell_on_complete: false
+  busy_input_mode: interrupt
+  compact: false
+  final_response_markdown: strip
+  inline_diffs: true
+  interim_assistant_messages: true
+  personality: kawaii
+  platforms: {}
+  resume_display: full
+  show_cost: false
+  show_reasoning: false
+  skin: default
+  streaming: true
+  tool_preview_length: 0
+  tool_progress: all
+  tool_progress_command: false
+  tool_progress_overrides: {}
+  user_message_preview:
+    first_lines: 2
+    last_lines: 2
+fallback_providers: []
+file_read_max_chars: 100000
+group_sessions_per_user: true
+honcho: {}
+hooks: {}
+hooks_auto_accept: false
+human_delay:
+  max_ms: 2500
+  min_ms: 800
+  mode: 'off'
+logging:
+  backup_count: 3
+  level: INFO
+  max_size_mb: 5
+mattermost:
+  channel_prompts: {}
+memory:
+  flush_min_turns: 6
+  memory_char_limit: 2200
+  memory_enabled: true
+  nudge_interval: 5
+  provider: holographic
+  rag:
+    chunk_overlap: 80
+    chunk_size: 400
+    compression:
+      auto_run_every: 86400
+      enabled: true
+      max_age_days: 90
+    database: ~/.hermes/memory/main.sqlite
+    embedding_model: nomic-embed-text
+    enabled: true
+    file_watcher:
+      enabled: true
+      poll_interval: 30
+    intelligence_bridge:
+      enabled: true
+      enhance_on_collect: true
+      min_importance: 3.5
+      rag_index_db: ~/.hermes/auto_run/intelligence_pipeline/rag_memory_index.db
+    ollama_url: http://172.31.32.1:11434
+    workspace: ~/.hermes/workspace
+  user_char_limit: 1375
+  user_profile_enabled: true
+model:
+  base_url: https://api.deepseek.com
+  default: deepseek-chat
+  provider: deepseek
+  models:
+  - name: deepseek-v4-flash
+    provider: deepseek
+    tier: value
+  - name: deepseek-chat
+    provider: deepseek
+    tier: balanced
+  - name: deepseek-v4-pro
+    provider: deepseek
+    tier: performance
+network:
+  force_ipv4: false
+onboarding:
+  seen:
+    busy_input_prompt: true
+    openclaw_residue_cleanup: true
+    tool_progress_prompt: true
+personalities: {}
+platform_toolsets:
+  cli:
+  - browser
+  - clarify
+  - code_execution
+  - cronjob
+  - delegation
+  - file
+  - image_gen
+  - memory
+  - session_search
+  - skills
+  - terminal
+  - todo
+  - tts
+  - vision
+  - web
+  discord:
+  - hermes-discord
+  homeassistant:
+  - hermes-homeassistant
+  signal:
+  - hermes-signal
+  slack:
+  - hermes-slack
+  telegram:
+  - hermes-telegram
+  whatsapp:
+  - hermes-whatsapp
+plugins:
+  enabled: []
+prefill_messages_file: ''
+privacy:
+  redact_pii: false
+providers: {}
+pushplus:
+  token: REDACTED
+quick_commands: {}
+security:
+  redact_secrets: true
+  tirith_enabled: true
+  tirith_fail_open: true
+  tirith_path: tirith
+  tirith_timeout: 5
+  website_blocklist:
+    domains: []
+    enabled: false
+    shared_files: []
+session_reset:
+  at_hour: 4
+  idle_minutes: 1440
+  mode: both
+sessions:
+  auto_prune: false
+  min_interval_hours: 24
+  retention_days: 90
+  vacuum_after_prune: true
+skills:
+  creation_nudge_interval: 15
+  external_dirs: []
+  inline_shell: false
+  inline_shell_timeout: 10
+  template_vars: true
+slack:
+  channel_prompts: {}
+smart_model_routing:
+  cheap_model: {}
+  enabled: false
+  max_simple_chars: 160
+  max_simple_words: 28
+streaming:
+  enabled: false
+stt:
+  enabled: true
+  local:
+    language: ''
+    model: base
+  mistral:
+    model: voxtral-mini-latest
+  openai:
+    model: whisper-1
+  provider: local
+telegram:
+  channel_prompts: {}
+terminal:
+  auto_source_bashrc: true
+  backend: local
+  container_cpu: 1
+  container_disk: 51200
+  container_memory: 5120
+  container_persistent: true
+  cwd: .
+  daytona_image: nikolaik/python-nodejs:python3.11-nodejs20
+  docker_env: {}
+  docker_forward_env: []
+  docker_image: nikolaik/python-nodejs:python3.11-nodejs20
+  docker_mount_cwd_to_workspace: false
+  docker_volumes: []
+  env_passthrough: []
+  lifetime_seconds: 300
+  modal_image: nikolaik/python-nodejs:python3.11-nodejs20
+  modal_mode: auto
+  persistent_shell: true
+  shell_init_files: []
+  singularity_image: docker://nikolaik/python-nodejs:python3.11-nodejs20
+  timeout: 180
+timezone: ''
+toolsets:
+- hermes-cli
+tts:
+  edge:
+    voice: en-US-AriaNeural
+  elevenlabs:
+    model_id: eleven_multilingual_v2
+    voice_id: pNInz6obpgDQGcFmaJgB
+  mistral:
+    model: voxtral-mini-tts-2603
+    voice_id: c69964a6-ab8b-4f8a-9465-ec0925096ec8
+  neutts:
+    device: cpu
+    model: neuphonic/neutts-air-q4-gguf
+    ref_audio: ''
+    ref_text: ''
+  openai:
+    model: gpt-4o-mini-tts
+    voice: alloy
+  provider: edge
+  xai:
+    bit_rate: 128000
+    language: en
+    sample_rate: 24000
+    voice_id: eve
+voice:
+  auto_tts: false
+  beep_enabled: true
+  max_recording_seconds: 120
+  record_key: ctrl+b
+  silence_duration: 3.0
+  silence_threshold: 200
+web:
+  backend: firecrawl
+whatsapp: {}
