@@ -139,6 +139,10 @@ PLUGIN_REGISTRY = [
      "系统自检: 14项健康检查"),
     ("lossless_claw", "scripts/lossless_claw.py", "post", True,
      "Lossless-Claw无损压缩: 对话后自动压缩"),
+    
+    # ── 综合任务执行增强(8大能力域+10条规则) ──
+    ("task_enhancement", "scripts/task_enhancement_engine.py", "both", True,
+     "综合任务执行增强: 全局规划/智能分段/阶段复盘/全局复盘/代码审核/测试循环/中断恢复/反降级"),
 
     # ── 记忆系统(13) ──
     ("hy_memory_orchestrator", "scripts/hy_memory_orchestrator.py", "post", True,
@@ -292,6 +296,9 @@ def safe_hook_pre_conversation(agent_self, user_message: str) -> Optional[str]:
     # 阶段7: 监控
     _try_load("monitor_engine", lambda mod: _run_script_module_subprocess(mod, contexts), contexts)
     
+    # 阶段8: 综合任务执行增强(8大能力域)
+    _try_load("task_enhancement", lambda mod: _run_task_enhancement(mod, task, contexts), contexts)
+    
     # 合并所有上下文
     if contexts:
         _force_context = "\n\n".join(contexts)
@@ -382,6 +389,8 @@ def safe_hook_post_conversation(agent_self, final_response: str, user_message: s
     _try_load("gear_task_validator", lambda mod: _run_post_subprocess(mod, None), None)
     _try_load("gear_master", lambda mod: _run_post_subprocess(mod, None), None)
     _try_load("long_task_guardian", lambda mod: _run_post_subprocess(mod, None), None)
+    # 综合任务执行增强(POST)
+    _try_load("task_enhancement", lambda mod: _run_task_enhancement_post(mod, user_message, final_response), None)
     
     _log(f"post_conversation 完成: {time.time()-start:.2f}s")
     os.environ.pop("_HERMES_PLUGIN_MGR", None)
@@ -754,6 +763,7 @@ _PLUGIN_CALLERS = {
     "system_audit": lambda mod, ctx: _run_post_subprocess(mod, ctx),
     "system_selfcheck": lambda mod, ctx: _run_post_subprocess(mod, ctx),
     "lossless_claw": lambda mod, ctx: _run_lossless_compression(mod, ctx),
+    "task_enhancement": lambda mod, ctx: _run_script_module_subprocess(mod, ctx),
     "hy_memory": lambda mod, ctx: _run_post_subprocess(mod, ctx),
     "l1_extractor": lambda mod, ctx: _run_post_subprocess(mod, ctx),
     "l2_scene": lambda mod, ctx: _run_post_subprocess(mod, ctx),
@@ -1010,6 +1020,28 @@ def _run_gear_enforcer(mod, contexts):
         contexts.append("[gear_enforcer] 已加载")
     except Exception as e:
         contexts.append(f"[gear_enforcer] {str(e)[:100]}")
+
+
+def _run_task_enhancement(mod, task, contexts):
+    """执行综合任务增强(PRE) — 8个能力域注入system prompt"""
+    try:
+        if hasattr(mod, 'pre_conversation_hook'):
+            ctx = mod.pre_conversation_hook(task)
+            if ctx:
+                contexts.append(ctx)
+                _log(f"_run_task_enhancement: 8能力域上下文已生成 ({len(ctx)} chars)")
+    except Exception as e:
+        _log(f"_run_task_enhancement: {e}")
+
+
+def _run_task_enhancement_post(mod, task, response):
+    """执行综合任务增强(POST) — 代码审核+复盘+反降级"""
+    try:
+        if hasattr(mod, 'post_conversation_hook'):
+            mod.post_conversation_hook(task, response)
+            _log(f"_run_task_enhancement_post: 完成")
+    except Exception as e:
+        _log(f"_run_task_enhancement_post: {e}")
 
 
 def _run_post_module(mod, name):

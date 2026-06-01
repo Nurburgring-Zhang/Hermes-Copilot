@@ -431,8 +431,8 @@
   },
   {
     "path": "scripts/agent_enhancement_manager.py",
-    "size": 52546,
-    "sha256": "970779a0853b89f7"
+    "size": 54067,
+    "sha256": "8072d2bf35f7a086"
   },
   {
     "path": "scripts/agent_enhancement_plugin.py",
@@ -683,6 +683,11 @@
     "path": "scripts/task_boundary.py",
     "size": 13139,
     "sha256": "701602959052e5c4"
+  },
+  {
+    "path": "scripts/task_enhancement_engine.py",
+    "size": 22075,
+    "sha256": "cbb5f109596da361"
   },
   {
     "path": "scripts/task_queue_manager.py",
