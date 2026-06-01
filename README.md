@@ -1,10 +1,12 @@
 <div align="center">
-<p style="color: #ff0000; font-size: 24px; font-weight: bold; background: #fff0f0; padding: 16px 20px; border: 2px solid #ff0000; border-radius: 8px; display: inline-block;">
-⚠️ 测试版！有可能导致 Hermes 崩溃或失效！<br>
+
+<p style="color: #ff0000; font-size: 32px; font-weight: bold; background: #fff0f0; padding: 20px 24px; border: 4px solid #ff0000; border-radius: 12px; display: inline-block; line-height: 1.6;">
+⚠️ 测试版！有可能导致 Hermes 崩溃或失效！<br><br>
 务必先做好备份！<br>
 务必先做好备份！<br>
 务必先做好备份！
 </p>
+
 </div>
 
 <br>
