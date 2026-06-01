@@ -5,9 +5,14 @@
     "sha256": "fb10f20a8e410b50"
   },
   {
+    "path": "README.md",
+    "size": 11349,
+    "sha256": "0e9b3265ea70dcce"
+  },
+  {
     "path": "SOUL.md",
-    "size": 15509,
-    "sha256": "ed0959d90b45b4c1"
+    "size": 15503,
+    "sha256": "5fab428693ab6f41"
   },
   {
     "path": "agent/model_router.py",
@@ -53,6 +58,11 @@
     "path": "crontab.txt",
     "size": 5657,
     "sha256": "05c4a0f0ce6ae4a0"
+  },
+  {
+    "path": "deploy.py",
+    "size": 5886,
+    "sha256": "41aafa02ce4b4aec"
   },
   {
     "path": "evolution_v3/experience_engine.py",
@@ -526,8 +536,8 @@
   },
   {
     "path": "scripts/gear_enforcer.py",
-    "size": 38595,
-    "sha256": "5fc2fcb9313361b4"
+    "size": 40156,
+    "sha256": "a1e57aabbe9c97ab"
   },
   {
     "path": "scripts/gear_master.py",

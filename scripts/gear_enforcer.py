@@ -453,20 +453,44 @@ def enforce():
         if remaining <= 5 and remaining > 0:
             log(f"  → ⚠️ 段{current_seg}即将结束(剩余{remaining}轮)，准备切换")
         
-        # 长程纠偏: 每5段执行一次漂移检测
+        # 长程纠偏: 每5段执行一次漂移检测 + 自动纠偏
         if current_seg > 0 and current_seg % 5 == 0 and seg_turns == 0:
             log(f"  → 🔄 段{current_seg}起始, 触发长程漂移检测...")
             try:
                 mt_result = meta_thinker_auto()
                 actions = mt_result.get("actions", [])
+                drift_score = mt_result.get("drift_score", 0)
+                drift_level = mt_result.get("level", "ok")
+                
                 if actions:
                     for a in actions:
                         log(f"  → [纠偏] {a}")
-                drift_score = mt_result.get("drift_score", 0)
-                if drift_score > 0.5:
-                    log(f"  → ⚠️ [纠偏] 漂移分数={drift_score:.2f} > 0.5, 建议检查任务方向")
+                
+                if drift_score > 0.1 or drift_level in ("critical", "warning"):
+                    log(f"  → ⚠️ [纠偏] 漂移分数={drift_score:.2f} > 0.1, 执行自动纠偏!")
+                    # 写入纠偏指令到wake_guide，下次LLM醒来时能看到
+                    try:
+                        _wg_path = REPORTS / "wake_guide.json"
+                        if _wg_path.exists():
+                            _wg_data = json.loads(_wg_path.read_text())
+                            _corrections = _wg_data.get("drift_corrections", [])
+                            _corrections.append({
+                                "detected_at": now().isoformat(),
+                                "drift_score": round(drift_score, 3),
+                                "level": drift_level,
+                                "actions": actions[:3],
+                                "instruction": "方向偏离! 请回顾原始任务目标, 纠正执行方向, 不要再跑偏!"
+                            })
+                            if len(_corrections) > 10:
+                                _corrections = _corrections[-10:]
+                            _wg_data["drift_corrections"] = _corrections
+                            _wg_data["drift_alert"] = True
+                            _wg_path.write_text(json.dumps(_wg_data, ensure_ascii=False, indent=2))
+                            log(f"  → ✅ [纠偏] 纠偏指令已写入wake_guide, 下次对话生效")
+                    except Exception as _we:
+                        log(f"  → [纠偏] 写入wake_guide失败: {_we}")
                 else:
-                    log(f"  → ✅ [纠偏] 漂移分数={drift_score:.2f}, 方向正常")
+                    log(f"  → ✅ [纠偏] 漂移分数={drift_score:.2f} <= 0.1, 方向正常")
             except Exception as _de:
                 log(f"  → [纠偏] 漂移检测异常: {_de}")
 
