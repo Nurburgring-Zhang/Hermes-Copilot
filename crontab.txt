@@ -1,76 +1,76 @@
-# ===== 🗂️ 采集 - 每3小时常规+每6小时加重 (格林主人 2026-05-28) =====
-0 */3 * * * cd /home/administrator/.hermes && python3 scripts/unified_collector_v5.py --collect --parallel 8 >> logs/pipeline_v3.log 2>&1
-30 */6 * * * cd /home/administrator/.hermes && python3 scripts/unified_collector_v5.py --collect --parallel 14 >> logs/pipeline_v3.log 2>&1
+# ===== 🗂️ 采集 - 每3小时常规+每6小时加重 (2026-05-28) =====
+0 */3 * * * cd /home/user/.hermes && python3 scripts/unified_collector_v5.py --collect --parallel 8 >> logs/pipeline_v3.log 2>&1
+30 */6 * * * cd /home/user/.hermes && python3 scripts/unified_collector_v5.py --collect --parallel 14 >> logs/pipeline_v3.log 2>&1
 
 # ===== 🎯 SkillOpt 自验证监控 (部署于 2026-05-29) ===== #
 # Skill验证健康检查: 每6小时
-0 */6 * * * cd /home/administrator/.hermes && python3 scripts/skillopt_trainer.py stats >> logs/skillopt_stats.log 2>&1
+0 */6 * * * cd /home/user/.hermes && python3 scripts/skillopt_trainer.py stats >> logs/skillopt_stats.log 2>&1
 # 负迁移扫描: 每天凌晨2点
-0 2 * * * cd /home/administrator/.hermes && python3 scripts/skillopt_trainer.py risks >> logs/skillopt_risks.log 2>&1
+0 2 * * * cd /home/user/.hermes && python3 scripts/skillopt_trainer.py risks >> logs/skillopt_risks.log 2>&1
 
 
 # ===== 🔄 Hy-Memory 全链路 cron v2.0 (部署于 2026-05-29 L1/L2/L3 LLM增强版) ===== #
 # L1 LLM提取: 每2小时(自动模式，检测到新对话则提取)
-45 */2 * * * cd /home/administrator/.hermes && python3 scripts/l1_extractor.py --auto >> logs/hy_memory_l1.log 2>&1  # 错开采集30分
+45 */2 * * * cd /home/user/.hermes && python3 scripts/l1_extractor.py --auto >> logs/hy_memory_l1.log 2>&1  # 错开采集30分
 # L2场景归纳: 每6小时
-15 */6 * * * cd /home/administrator/.hermes && python3 scripts/l2_scene_scheduler.py >> logs/hy_memory_l2.log 2>&1  # 错开采集0分
+15 */6 * * * cd /home/user/.hermes && python3 scripts/l2_scene_scheduler.py >> logs/hy_memory_l2.log 2>&1  # 错开采集0分
 # L3画像生成: 每天凌晨5点
-0 5 * * * cd /home/administrator/.hermes && python3 scripts/l3_persona_scheduler.py >> logs/hy_memory_l3.log 2>&1
+0 5 * * * cd /home/user/.hermes && python3 scripts/l3_persona_scheduler.py >> logs/hy_memory_l3.log 2>&1
 # 情景记忆注入: 每30分钟
-*/30 * * * * cd /home/administrator/.hermes && python3 scripts/episodic_injector.py >> logs/hy_memory_episodic.log 2>&1
+*/30 * * * * cd /home/user/.hermes && python3 scripts/episodic_injector.py >> logs/hy_memory_episodic.log 2>&1
 # 全链路编排: 每小时
-0 * * * * cd /home/administrator/.hermes && python3 scripts/hy_memory_orchestrator.py all >> logs/hy_memory_orch.log 2>&1
+0 * * * * cd /home/user/.hermes && python3 scripts/hy_memory_orchestrator.py all >> logs/hy_memory_orch.log 2>&1
 # 全链路审计: 每2小时
-0 */2 * * * cd /home/administrator/.hermes && python3 scripts/hy_memory_orchestrator.py audit >> logs/hy_memory_audit.log 2>&1
+0 */2 * * * cd /home/user/.hermes && python3 scripts/hy_memory_orchestrator.py audit >> logs/hy_memory_audit.log 2>&1
 # 数据清理: 每天凌晨3点
-0 3 * * * cd /home/administrator/.hermes && python3 scripts/hy_memory_orchestrator.py cleanup >> logs/hy_memory_cleanup.log 2>&1
+0 3 * * * cd /home/user/.hermes && python3 scripts/hy_memory_orchestrator.py cleanup >> logs/hy_memory_cleanup.log 2>&1
 # 自进化引擎: 每天3:30（在清理之后）
-30 3 * * * cd /home/administrator/.hermes && python3 auto_engine/self_evolution_engine.py >> logs/self_evolution.log 2>&1
+30 3 * * * cd /home/user/.hermes && python3 auto_engine/self_evolution_engine.py >> logs/self_evolution.log 2>&1
 
 # 唤醒注入: 每分钟(gear_enforcer依赖)
-* * * * * cd /home/administrator/.hermes && python3 scripts/wake_injector.py >> logs/hy_memory_recall.log 2>&1
+* * * * * cd /home/user/.hermes && python3 scripts/wake_injector.py >> logs/hy_memory_recall.log 2>&1
 
 # G8 生产级可靠性引擎: 每10分钟
-*/10 * * * * cd /home/administrator/.hermes && python3 scripts/production_loop_cron.py >> logs/production_loop.log 2>&1
+*/10 * * * * cd /home/user/.hermes && python3 scripts/production_loop_cron.py >> logs/production_loop.log 2>&1
 # 压缩保真度验证: 每10分钟（在压缩后自动检查信息完整性）
-*/10 * * * * cd /home/administrator/.hermes && python3 scripts/compression_fidelity_validator.py >> logs/fidelity_validator.log 2>&1
+*/10 * * * * cd /home/user/.hermes && python3 scripts/compression_fidelity_validator.py >> logs/fidelity_validator.log 2>&1
 
 # ===== 🧠 上下文系统每分钟调度 (由subagent 2026-06-01部署) =====
-* * * * * cd /home/administrator/.hermes && python3 scripts/context_packer.py general >> logs/context_packer.log 2>&1
-* * * * * cd /home/administrator/.hermes && python3 scripts/surgical_context_slicer.py >> logs/surgical_context_slicer.log 2>&1
-* * * * * cd /home/administrator/.hermes && python3 scripts/context_auto_assoc.py >> logs/context_auto_assoc.log 2>&1
-* * * * * cd /home/administrator/.hermes && python3 scripts/context_index_system.py auto >> logs/context_index_system.log 2>&1
-* * * * * cd /home/administrator/.hermes && python3 scripts/cross_session_cache.py >> logs/cross_session_cache.log 2>&1
+* * * * * cd /home/user/.hermes && python3 scripts/context_packer.py general >> logs/context_packer.log 2>&1
+* * * * * cd /home/user/.hermes && python3 scripts/surgical_context_slicer.py >> logs/surgical_context_slicer.log 2>&1
+* * * * * cd /home/user/.hermes && python3 scripts/context_auto_assoc.py >> logs/context_auto_assoc.log 2>&1
+* * * * * cd /home/user/.hermes && python3 scripts/context_index_system.py auto >> logs/context_index_system.log 2>&1
+* * * * * cd /home/user/.hermes && python3 scripts/cross_session_cache.py >> logs/cross_session_cache.log 2>&1
 
 # ===== 🆕 三层认知架构新增 (由subagent 2026-06-01部署) =====
 # 监控层: 每分钟
-* * * * * cd /home/administrator/.hermes && python3 agent/monitor.py test >> logs/monitor.log 2>&1
+* * * * * cd /home/user/.hermes && python3 agent/monitor.py test >> logs/monitor.log 2>&1
 # 反思层: 每分钟
-* * * * * cd /home/administrator/.hermes && python3 agent/reflector.py test >> logs/reflector.log 2>&1
+* * * * * cd /home/user/.hermes && python3 agent/reflector.py test >> logs/reflector.log 2>&1
 # 模型路由: 每5分钟(带task_type参数)
-*/5 * * * * cd /home/administrator/.hermes && python3 agent/model_router.py stats >> logs/model_router.log 2>&1
+*/5 * * * * cd /home/user/.hermes && python3 agent/model_router.py stats >> logs/model_router.log 2>&1
 # 一致性守卫: 每分钟
-* * * * * cd /home/administrator/.hermes && python3 scripts/consistency_guard.py >> logs/consistency_guard.log 2>&1
+* * * * * cd /home/user/.hermes && python3 scripts/consistency_guard.py >> logs/consistency_guard.log 2>&1
 # 段管理器: 每分钟(记录状态)
-* * * * * cd /home/administrator/.hermes && python3 scripts/segment_manager.py stats >> logs/segment_manager.log 2>&1
+* * * * * cd /home/user/.hermes && python3 scripts/segment_manager.py stats >> logs/segment_manager.log 2>&1
 # 检查点记录: 每分钟(自动保存当前状态)
-* * * * * cd /home/administrator/.hermes && python3 scripts/checkpoint_recorder.py latest >> logs/checkpoint_recorder.log 2>&1
+* * * * * cd /home/user/.hermes && python3 scripts/checkpoint_recorder.py latest >> logs/checkpoint_recorder.log 2>&1
 # 分层规划状态: 每分钟(列出所有规划状态)
-* * * * * cd /home/administrator/.hermes && python3 scripts/layered_planner.py list >> logs/layered_planner.log 2>&1
+* * * * * cd /home/user/.hermes && python3 scripts/layered_planner.py list >> logs/layered_planner.log 2>&1
 # 退化自动修复: 每5分钟
-*/5 * * * * cd /home/administrator/.hermes && python3 scripts/auto_healer.py >> logs/auto_healer.log 2>&1
+*/5 * * * * cd /home/user/.hermes && python3 scripts/auto_healer.py >> logs/auto_healer.log 2>&1
 
 # ===== 🔧 P2-P3 模块定时运行 (由subagent 2026-06-01 部署) =====
 # ProgressTool: 每30分钟
-*/30 * * * * cd /home/administrator/.hermes && python3 tools/progress_tool.py >> logs/progress_tool.log 2>&1
+*/30 * * * * cd /home/user/.hermes && python3 tools/progress_tool.py >> logs/progress_tool.log 2>&1
 # TRGate 检查: 每60分钟
-0 * * * * cd /home/administrator/.hermes && python3 scripts/tr_gate.py check >> logs/tr_gate.log 2>&1
+0 * * * * cd /home/user/.hermes && python3 scripts/tr_gate.py check >> logs/tr_gate.log 2>&1
 # DoDChecklist 检查: 每60分钟
-0 * * * * cd /home/administrator/.hermes && python3 scripts/dod_checklist.py check >> logs/dod_checklist.log 2>&1
+0 * * * * cd /home/user/.hermes && python3 scripts/dod_checklist.py check >> logs/dod_checklist.log 2>&1
 # ReflexionEngine: 每30分钟
-*/30 * * * * cd /home/administrator/.hermes && python3 scripts/reflexion_engine.py >> logs/reflexion_engine.log 2>&1
+*/30 * * * * cd /home/user/.hermes && python3 scripts/reflexion_engine.py >> logs/reflexion_engine.log 2>&1
 # ExperienceExtractor: 每60分钟
-0 * * * * cd /home/administrator/.hermes && python3 scripts/experience_extractor.py >> logs/experience_extractor.log 2>&1
+0 * * * * cd /home/user/.hermes && python3 scripts/experience_extractor.py >> logs/experience_extractor.log 2>&1
 # AutoCleaner (dry-run模式, 不做物理删除): 每60分钟
-0 * * * * cd /home/administrator/.hermes && python3 scripts/auto_cleaner.py dry-run >> logs/auto_cleaner.log 2>&1
+0 * * * * cd /home/user/.hermes && python3 scripts/auto_cleaner.py dry-run >> logs/auto_cleaner.log 2>&1
 
