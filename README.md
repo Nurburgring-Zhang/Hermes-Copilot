@@ -1,4 +1,4 @@
-# Hermes 全量强化备份
+# Hermes 全量强化
 
 **让 Hermes Agent 从"能跑"变成"真他妈能打"**
 
