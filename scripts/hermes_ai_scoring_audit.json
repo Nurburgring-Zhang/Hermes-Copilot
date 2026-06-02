@@ -1,0 +1,314 @@
+[
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 20,
+    "severity": "low",
+    "issue_type": "unused_import",
+    "description": "从datetime导入的`date`在文件中仅用于日志文件名格式化(line 75)，但完全可以使用datetime.now().strftime替代。",
+    "fix_suggestion": "删除`date`导入，将line 75改为`datetime.now().strftime('%Y%m%d')`"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 28,
+    "severity": "medium",
+    "issue_type": "duplicate_variable",
+    "description": "`HERMES = Path.home() / '.hermes'`在第28行和第64行重复定义。中间.env加载块使用第28行的值后又被重新赋值。",
+    "fix_suggestion": "删除第64行的重复赋值，只保留第28行的一次定义"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 32,
+    "severity": "medium",
+    "issue_type": "env_loading_no_fallback",
+    "description": ".env文件路径硬编码为`HERMES / '.env'`，如果文件不存在则静默跳过，不给用户任何提示。cron环境首次运行或配错路径时API key完全缺失。",
+    "fix_suggestion": "当.env不存在时输出一条debug级别的日志告知用户"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 35,
+    "severity": "medium",
+    "issue_type": "env_parsing_edge_case",
+    "description": ".env解析使用split('=',1)，未处理：值包含等号、值前后引号未去除、被隐藏的值仅检查字面`***`而非startswith。",
+    "fix_suggestion": "使用python-dotenv库替代手动解析，或至少使用shlex.split处理引号"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 44,
+    "severity": "high",
+    "issue_type": "silent_exception_pass",
+    "description": ".env加载整个try块被`except Exception: pass`吞掉所有异常。文件编码非utf-8、文件损坏、权限错误时用户完全不知道。",
+    "fix_suggestion": "改为`except Exception as e: log(f'WARNING .env加载失败: {e}')`"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 52,
+    "severity": "medium",
+    "issue_type": "file_encoding_issue",
+    "description": "`open(_cfg_path)`未指定encoding参数。系统locale非utf-8时yaml文件中非ASCII字符可能解码失败。",
+    "fix_suggestion": "改为`open(_cfg_path, encoding='utf-8')`"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 60,
+    "severity": "medium",
+    "issue_type": "env_key_shadowing",
+    "description": "deepseek api_key被回填到OPENROUTER_API_KEY。但deepseek key格式(sk-)与OpenRouter key格式(sk-or-)不同，用错key导致OpenRouter认证失败，随后整个API fallback链中断。",
+    "fix_suggestion": "不要将deepseek key自动填入OPENROUTER_API_KEY，需要显式配置"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 61,
+    "severity": "high",
+    "issue_type": "silent_exception_pass",
+    "description": "config.yaml加载的整个try块被`except Exception: pass`吞掉。yaml模块不存在或文件格式错误时用户完全不知道。",
+    "fix_suggestion": "至少输出warning日志：`except Exception as e: log(f'WARNING config.yaml加载失败: {e}')`"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 85,
+    "severity": "medium",
+    "issue_type": "resource_leak_on_exception",
+    "description": "`am = sqlite3.connect()`后如果`am.execute()`抛出异常，`am.close()`不会执行。",
+    "fix_suggestion": "使用`with sqlite3.connect() as am:`上下文管理器"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 94,
+    "severity": "high",
+    "issue_type": "unused_parameter",
+    "description": "`get_pending_items()`的`backfill: bool = False`参数从未在函数体中被使用。任何调用get_pending_items(backfill=True)都不会产生预期行为。",
+    "fix_suggestion": "删除`backfill`参数或实现backfill逻辑"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 96,
+    "severity": "high",
+    "issue_type": "resource_leak_on_exception",
+    "description": "`get_pending_items()`中conn创建后如果中间抛出异常，conn.close()不会执行。",
+    "fix_suggestion": "使用`with sqlite3.connect(str(DB_PATH)) as conn:`上下文管理器"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 130,
+    "severity": "high",
+    "issue_type": "bare_except",
+    "description": "`except:`裸except捕获包括KeyboardInterrupt和SystemExit的所有异常。用户Ctrl+C会被静默吞掉。",
+    "fix_suggestion": "改为`except (ValueError, TypeError):`只捕获日期解析相关的异常"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 133,
+    "severity": "low",
+    "issue_type": "hardcoded_values",
+    "description": "来源可信度分类的关键词列表(官方/一手/媒体)和规则评分中的关键词匹配全部硬编码在代码中。",
+    "fix_suggestion": "将来源分类和关键词规则移至外部配置文件(YAML/JSON)"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 154,
+    "severity": "low",
+    "issue_type": "magic_number",
+    "description": "偏好匹配评分中硬编码500字符截断、除数3和上限10。",
+    "fix_suggestion": "定义为模块级常量如PREFERENCE_CONTENT_TRUNCATE=500"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 247,
+    "severity": "medium",
+    "issue_type": "regex_potential_failure",
+    "description": "正则`re.sub(r'^```...'`使用^锚定但未设置re.MULTILINE。AI返回前有换行时无法去除markdown代码块标记。",
+    "fix_suggestion": "添加`flags=re.MULTILINE`或去掉^锚定"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 263,
+    "severity": "medium",
+    "issue_type": "bare_except",
+    "description": "`except:`裸except，应只捕获json.JSONDecodeError。",
+    "fix_suggestion": "改为`except json.JSONDecodeError:`"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 327,
+    "severity": "high",
+    "issue_type": "resource_leak_on_exception",
+    "description": "`save_scores_to_db()`中conn创建后如果处理过程中抛出异常，conn.close()不会执行。",
+    "fix_suggestion": "使用`with sqlite3.connect() as conn:`并在异常时conn.rollback()"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 406,
+    "severity": "medium",
+    "issue_type": "hardcoded_value",
+    "description": "API URL硬编码(deepseek/openrouter/anthropic/openai的endpoint URL)，切换私有部署或代理中转需要改代码。",
+    "fix_suggestion": "通过环境变量可配置各provider的base URL"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 416,
+    "severity": "medium",
+    "issue_type": "api_key_leak_risk",
+    "description": "line 427的日志输出API key前5个字符到日志文件，共享日志环境中存在敏感信息泄露风险。",
+    "fix_suggestion": "改为输出是否存在(布尔值)而非截断前缀"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 431,
+    "severity": "low",
+    "issue_type": "dead_code",
+    "description": "`api_key_effective`、`api_url_effective`、`model_effective`三个变量赋值后从未被使用。重构遗留。",
+    "fix_suggestion": "删除这三行死代码"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 447,
+    "severity": "low",
+    "issue_type": "hardcoded_string",
+    "description": "AI system prompt硬编码为中文，切换模型语言或调整评分标准需要改代码。",
+    "fix_suggestion": "将system prompt模板化，通过环境变量或配置文件定义"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 453,
+    "severity": "critical",
+    "issue_type": "bug_model_mismatch",
+    "description": "API payload的model字段使用原始参数`model`而非经过fallback逻辑更新的`model_to_use`。当回退到OpenRouter时，模型名应为`deepseek/deepseek-chat`但发送了`deepseek-chat`，OpenRouter会返回错误。",
+    "fix_suggestion": "将line 454的`\"model\": model`改为`\"model\": model_to_use`"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 460,
+    "severity": "low",
+    "issue_type": "magic_number",
+    "description": "API调用中max_tokens=4000和temperature=0.3硬编码，不同模型的最佳参数不同。",
+    "fix_suggestion": "通过环境变量或函数参数使参数可配置"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 465,
+    "severity": "low",
+    "issue_type": "hardcoded_string",
+    "description": "HTTP-Referer URL(`https://hermes.weixin.ai`)和X-Title硬编码，部署域名变更需改代码。",
+    "fix_suggestion": "将Referer URL改为环境变量OPENROUTER_REFERER可配置"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 474,
+    "severity": "medium",
+    "issue_type": "retry_exhaustion_logging",
+    "description": "重试日志最后的`e`变量在try块外引用。虽然当前逻辑下e已定义，但代码脆弱依赖最后一个except绑定的e。",
+    "fix_suggestion": "在循环外显式初始化`last_error = None`并在except中赋值"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 478,
+    "severity": "medium",
+    "issue_type": "timeout_setting",
+    "description": "API超时120秒。20条数据(4批*3次重试)最坏等待24分钟才报错。",
+    "fix_suggestion": "减少超时到60秒或添加批处理总超时保护"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 544,
+    "severity": "low",
+    "issue_type": "hardcoded_delay",
+    "description": "批次间延迟2秒硬编码，免费OpenRouter账户速率限制可能更低。",
+    "fix_suggestion": "定义为常量或通过环境变量AI_RATE_LIMIT_DELAY可配置"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 567,
+    "severity": "high",
+    "issue_type": "resource_leak_on_exception",
+    "description": "`run_ai_scoring_via_delegate_task`中的第二个数据库连接在查询和PRAGMA操作之间没有异常保护。",
+    "fix_suggestion": "使用`with sqlite3.connect() as conn:`上下文管理器"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 578,
+    "severity": "medium",
+    "issue_type": "potential_column_mismatch",
+    "description": "动态PRAGMA获取列名后只取前12列与SELECT匹配，表结构变更时数据错位。",
+    "fix_suggestion": "使用cursor.description替代PRAGMA table_info"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 594,
+    "severity": "medium",
+    "issue_type": "cron_env_isolation",
+    "description": ".env加载逻辑中`if _k not in os.environ:`不会覆盖空字符串key。cron环境设置空值key时，env值不会被正确填充。",
+    "fix_suggestion": "改为`if _k not in os.environ or not os.environ[_k]:`允许覆盖空值"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 631,
+    "severity": "high",
+    "issue_type": "resource_leak_on_exception",
+    "description": "`apply_enhanced_rule_scores()`中conn创建后如果在循环中途抛出异常，conn.close()不执行。",
+    "fix_suggestion": "使用`with sqlite3.connect() as conn:`上下文管理器"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 634,
+    "severity": "medium",
+    "issue_type": "potential_key_error",
+    "description": "循环内直接访问result['total']和result['scarcity_reason']等key，如果apply_rules_for_fallback返回值缺少这些key会引发KeyError。",
+    "fix_suggestion": "使用result.get()或添加断言检查"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 662,
+    "severity": "medium",
+    "issue_type": "potential_key_error",
+    "description": "`item['id']`直接访问而非item.get('id')。如果item不含id字段会抛出KeyError。",
+    "fix_suggestion": "改为`item.get('id', '?')`"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 696,
+    "severity": "low",
+    "issue_type": "duplicate_logic",
+    "description": "`apply_rule_scores_directly()`和`apply_enhanced_rule_scores()`两条回退路径逻辑高度重复，维护成本高。",
+    "fix_suggestion": "合并为统一的规则评分函数或让其中一个委托给另一个"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 758,
+    "severity": "medium",
+    "issue_type": "unnecessary_db_connection",
+    "description": "`apply_rule_scores_directly()`在第701行创建连接并操作后关闭，又在第758行新建一个连接仅用于统计查询。创建了两个不必要的连接。",
+    "fix_suggestion": "复用第一个连接进行统计查询"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 791,
+    "severity": "critical",
+    "issue_type": "syntax_error",
+    "description": "`--batch`分支内存在缩进错误导致Python AST解析失败。line 803的`if not items:`和line 806的`else:`与外部elif结构冲突，line 809的`if saved > 0:`出现IndentationError。整个脚本无法执行。",
+    "fix_suggestion": "重构main()的if-elif-else结构，确保--batch分支内的子if-else正确缩进"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 796,
+    "severity": "medium",
+    "issue_type": "argument_parsing_edge_case",
+    "description": "使用简单的`in sys.argv`而非argparse。`--ai --full`和`--full --ai`行为不一致；`--batch`模式下args中的数字参数可能误匹配；line 820假设sys.argv[2]是数字。",
+    "fix_suggestion": "使用argparse或至少添加更多参数边界检查"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 803,
+    "severity": "high",
+    "issue_type": "undefined_variable_risk",
+    "description": "`--batch`分支外未定义items变量。虽然当前所有elif路径都定义了items，但代码脆弱，新增分支容易遗漏。",
+    "fix_suggestion": "在main入口初始化items=None，或确保每条路径都定义"
+  },
+  {
+    "file": "/home/administrator/.hermes/scripts/hermes_ai_scoring.py",
+    "line": 806,
+    "severity": "high",
+    "issue_type": "structural_logic_bug",
+    "description": "--batch分支内的else块缩进错误。line 807-814使用了8空格缩进，line 809尝试12空格缩进，导致IndentationError。",
+    "fix_suggestion": "见line 791的关键语法修复，需要完整重构main()结构"
+  }
+]

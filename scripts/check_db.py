@@ -1,0 +1,13 @@
+import sqlite3, datetime
+conn = sqlite3.connect('intelligence.db')
+c = conn.cursor()
+today = datetime.date.today().isoformat()
+c.execute("SELECT COUNT(*) FROM cleaned_intelligence WHERE DATE(cleaned_at) = ? AND value_level >= 3", (today,))
+print('Total ⭐3+ today:', c.fetchone()[0])
+c.execute("SELECT COUNT(*) FROM cleaned_intelligence WHERE DATE(cleaned_at) = ? AND value_level >= 3 AND language='zh'", (today,))
+print('Chinese ⭐3+:', c.fetchone()[0])
+c.execute("SELECT COUNT(*) FROM cleaned_intelligence WHERE DATE(cleaned_at) = ? AND value_level >= 3 AND language='en'", (today,))
+print('English ⭐3+:', c.fetchone()[0])
+c.execute("SELECT platform, COUNT(*) FROM cleaned_intelligence WHERE DATE(cleaned_at) = ? AND value_level >= 3 GROUP BY platform", (today,))
+print('By platform:', c.fetchall())
+conn.close()

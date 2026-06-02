@@ -1,0 +1,82 @@
+[
+  {
+    "id": 96757,
+    "title": "[GitHub] openclaw/openclaw",
+    "content": "Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞 ",
+    "platform": "github",
+    "source": "GitHub-typescript",
+    "importance_score": 11014.95
+  },
+  {
+    "id": 91018,
+    "title": "[GitHub] openclaw/openclaw",
+    "content": "Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞 ",
+    "platform": "github",
+    "source": "GitHub-typescript",
+    "importance_score": 11010.72
+  },
+  {
+    "id": 96747,
+    "title": "[GitHub] affaan-m/everything-claude-code",
+    "content": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+    "platform": "github",
+    "source": "GitHub-javascript",
+    "importance_score": 6431.25
+  },
+  {
+    "id": 91029,
+    "title": "[GitHub] affaan-m/everything-claude-code",
+    "content": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+    "platform": "github",
+    "source": "GitHub-javascript",
+    "importance_score": 6425.36
+  },
+  {
+    "id": 96153,
+    "title": "VoltAgent/awesome-design-md: A collection of DESIGN.md files inspired by popular brand design systems. Drop one into your project",
+    "content": "⭐ 69,185 | 🍴 8,505 | 📅 31天 | 语言: None\nA collection of DESIGN.md files inspired by popular brand design systems. Drop one into your project and let coding agents generate a matching UI.\n\nTopics: awesome-list, design-md, design-system, design-tokens, figma, google-stitch, landing-page, vibe-coding, vibe-design",
+    "platform": "github",
+    "source": "GitHub Trending",
+    "importance_score": 5507.81
+  },
+  {
+    "id": 96766,
+    "title": "[GitHub] anthropics/skills",
+    "content": "Public repository for Agent Skills",
+    "platform": "github",
+    "source": "GitHub-python",
+    "importance_score": 4759.61
+  },
+  {
+    "id": 91032,
+    "title": "[GitHub] anthropics/skills",
+    "content": "Public repository for Agent Skills",
+    "platform": "github",
+    "source": "GitHub-python",
+    "importance_score": 4755.98
+  },
+  {
+    "id": 96755,
+    "title": "[GitHub] google-gemini/gemini-cli",
+    "content": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+    "platform": "github",
+    "source": "GitHub-typescript",
+    "importance_score": 3858.83
+  },
+  {
+    "id": 91033,
+    "title": "[GitHub] google-gemini/gemini-cli",
+    "content": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+    "platform": "github",
+    "source": "GitHub-typescript",
+    "importance_score": 3857.77
+  },
+  {
+    "id": 96764,
+    "title": "[GitHub] karpathy/autoresearch",
+    "content": "AI agents running research on single-GPU nanochat training automatically",
+    "platform": "github",
+    "source": "GitHub-python",
+    "importance_score": 2937.38
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "hackernews": {
+    "status": "FAILED",
+    "error": "Page.goto: Timeout 20000ms exceeded.\nCall log:\n  - navigating to \"https://news.ycombinator.com/\", waiting until \"domcontentloaded\"\n"
+  },
+  "reddit": {
+    "status": "FAILED",
+    "error": "Page.goto: Timeout 20000ms exceeded.\nCall log:\n  - navigating to \"https://www.reddit.com/r/programming/hot/?limit=15\", waiting until \"domcontentloaded\"\n"
+  },
+  "huggingface": {
+    "status": "FAILED",
+    "error": "Page.goto: Timeout 20000ms exceeded.\nCall log:\n  - navigating to \"https://huggingface.co/papers\", waiting until \"domcontentloaded\"\n"
+  }
+}

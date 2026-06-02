@@ -1,0 +1,120 @@
+"""
+Hermes 生产级可靠性引擎 Cron调度器
+每10分钟检查并恢复中断任务
+每30分钟Critic审查所有活跃会话
+每2小时深度状态验证
+"""
+
+import json
+import os
+import sys
+import time
+from datetime import datetime
+
+# 添加父目录到路径
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from production_loop.engine import ProductionLoopEngine, resume_interrupted
+from production_loop.loop_state import LoopStateStore, FileBasedStateStore
+
+
+def run_check():
+    """执行检查 — 每10分钟"""
+    store = LoopStateStore()
+    file_store = FileBasedStateStore()
+
+    # 1. 检查是否有中断任务
+    run_state = file_store.load_run_state()
+    if run_state and run_state.fsm_state not in ("IDLE",):
+        print(f"[{datetime.now().isoformat()}] 检测到中断任务: "
+              f"{run_state.task_id} (状态: {run_state.fsm_state})")
+        # 尝试恢复
+        resume_interrupted()
+    else:
+        print(f"[{datetime.now().isoformat()}] 无中断任务")
+
+    # 2. 检查数据库健康
+    unfinished = store.get_unfinished_tasks()
+    if unfinished:
+        print(f"  未完成任务: {len(unfinished)}")
+        for task in unfinished[:3]:
+            print(f"    - {task['task_id'][:16]}: {task.get('status', '?')}")
+
+    # 3. 写入审计快照
+    audit = {
+        "timestamp": datetime.now().isoformat(),
+        "unfinished_tasks": len(unfinished),
+        "engine_running": run_state is not None
+    }
+    audit_path = os.path.expanduser(
+        "~/.hermes/reports/production_loop_audit.json"
+    )
+    with open(audit_path, "w") as f:
+        json.dump(audit, f, indent=2)
+
+
+def run_critic():
+    """执行Critic审查 — 每30分钟"""
+    store = LoopStateStore()
+    unfinished = store.get_unfinished_tasks()
+
+    report = {
+        "timestamp": datetime.now().isoformat(),
+        "active_sessions": len(unfinished),
+        "sessions": []
+    }
+
+    for task in unfinished:
+        report["sessions"].append({
+            "task_id": task["task_id"],
+            "goal": task.get("original_goal", "")[:80],
+            "status": task.get("status", "unknown"),
+            "created": task.get("created_at", "")
+        })
+
+    # 保存报告
+    report_path = os.path.expanduser(
+        "~/.hermes/reports/critic_report.json"
+    )
+    with open(report_path, "w") as f:
+        json.dump(report, f, indent=2)
+
+    print(f"[{datetime.now().isoformat()}] Critic审查完成: "
+          f"{len(unfinished)}活跃会话")
+
+
+def run_deep_check():
+    """深度验证 — 每2小时"""
+    file_store = FileBasedStateStore()
+
+    # 检查所有状态文件完整性
+    checks = {
+        "run_state.json": os.path.exists(
+            os.path.expanduser("~/.hermes/state/run_state.json")
+        ),
+        "last_success.json": os.path.exists(
+            os.path.expanduser("~/.hermes/state/last_success.json")
+        )
+    }
+
+    all_ok = all(checks.values())
+    print(f"[{datetime.now().isoformat()}] "
+          f"状态文件完整性: {'通过' if all_ok else '异常'}")
+    for name, ok in checks.items():
+        print(f"  {name}: {'✓' if ok else '✗'}")
+
+    return all_ok
+
+
+if __name__ == "__main__":
+    action = sys.argv[1] if len(sys.argv) > 1 else "check"
+
+    if action == "check":
+        run_check()
+    elif action == "critic":
+        run_critic()
+    elif action == "deep_check":
+        run_deep_check()
+    else:
+        print(f"未知操作: {action}")
+        print("用法: python3 production_cron.py [check|critic|deep_check]")

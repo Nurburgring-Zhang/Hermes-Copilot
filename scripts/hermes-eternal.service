@@ -1,0 +1,20 @@
+[Unit]
+Description=Hermes Eternal Guardian - Never Stops Never Dies
+After=network.target
+
+[Service]
+Type=simple
+User=administrator
+WorkingDirectory=/home/administrator/.hermes
+ExecStart=/home/administrator/.hermes/hermes-agent/venv/bin/python3 /home/administrator/.hermes/scripts/eternal_loop.py
+Restart=always
+RestartSec=5
+StartLimitInterval=0
+StartLimitBurst=0
+StandardOutput=append:/home/administrator/.hermes/logs/eternal_service.log
+StandardError=append:/home/administrator/.hermes/logs/eternal_service.log
+KillMode=process
+TimeoutStopSec=5
+
+[Install]
+WantedBy=default.target
