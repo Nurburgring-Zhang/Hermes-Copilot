@@ -89,7 +89,7 @@ _PLUGIN_REGISTRY = [
 | **surgical_slicer** | task_type=general | 精准切分当前任务上下文 |
 | **context_auto_assoc** | task_type=general | 跨段信息关联 |
 | **context_failsafe** | RECOVERY_PACK updated | 断点保护 |
-| **cross_session_cache** | session_count=2959 | 跨会话记忆 |
+| **cross_session_cache（已合并）** | session_count=2959 | 跨会话记忆 |
 | **session_init_check** | ⚠️中断任务: xxx → 已完成 | 恢复中断任务 |
 | **wake_guide** | Omni循环: ✅ 正常 | 系统健康状态 |
 | **agent_company** | 员工130人 / 专家390人 | 知道自己有团队 |
@@ -140,7 +140,7 @@ _PLUGIN_REGISTRY = [
 ### 问题4：长程对话记忆丢失
 
 **Before**: 50轮对话后LLM忘了最初任务  
-**After**: `segment_manager` 每50轮自动切换段，生成交接笔记（包含完成任务、关键决策），同步到cross_session_cache。下段LLM读交接笔记恢复上下文
+**After**: `segment_manager` 每50轮自动切换段，生成交接笔记（包含完成任务、关键决策），同步到cross_session_cache（已合并）。下段LLM读交接笔记恢复上下文
 
 ### 问题5：长程任务漂移
 
@@ -198,9 +198,9 @@ hermes-full-enhancement-pack/
 ├── production_loop/                   # 8个生产可靠性模块
 ├── evolution_v3/                      # 6个V3进化模块
 ├── reports/
-│   ├── context_sections/              # 49个章节文件
+│   ├── context_sections/              # 6个分类章节文件
 │   ├── context_index.json             # 上下文索引
-│   ├── context_pack.json              # 上下文压缩包
+│   ├── context_index.json              # 上下文压缩包
 │   └── ...其他报告
 ```
 

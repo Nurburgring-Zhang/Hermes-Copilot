@@ -2,7 +2,7 @@
 # AGENTS.md - 索引精简版（全量规则见SOUL.md章节索引）
 # ============================================================================
 # 原始全量AGENTS.md已备份
-# 完整规则内容：reports/context_sections/（14章节独立文件）
+# 完整规则内容：reports/context_sections/（6分类合并文件）
 # ============================================================================
 
 ## 🔴 强制声明
@@ -140,6 +140,6 @@
 ## 关键文件
 - SOUL.md: 本索引版(4169字符)
 - reports/context_index.json: 上下文索引摘要
-- reports/context_pack.json: 压缩包(v2.0动态提取, 78.1%)
-- reports/context_sections/: 14个章节独立文件
+- reports/context_index.json: 上下文索引摘要(6分类合并)
+- reports/context_sections/: 6个分类合并文件
 - scripts/context_reconstructor.py: 章节复原工具(show/search/all/verify)

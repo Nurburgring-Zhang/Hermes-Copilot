@@ -2,7 +2,7 @@
 # SOUL.md - 索引压缩版 v2.0（动态提取）
 # ============================================================================
 # 原始全量SOUL.md已备份至: /mnt/d/Hermes/备份/上下文压缩改造_20260527_180126/SOUL.md.bak
-# 完整章节内容在: reports/context_sections/（14个章节独立文件）
+# 完整章节内容在: reports/context_sections/（6个分类合并文件）
 # 需要完整规则时: read_file('reports/context_sections/<ID>.md')
 # 索引文件每1分钟cron更新，永远同步
 # ============================================================================
@@ -54,7 +54,7 @@
 - 需要完整章节时：`read_file('reports/context_sections/<ID>.md')`
 - 或 `python3 scripts/context_reconstructor.py show <章节ID>`
 3. 索引文件每1分钟由cron自动更新，永远与SOUL.md同步
-4. 14章节文件在 `reports/context_sections/` 下，覆盖所有永久规则
+4. 6分类文件在 `reports/context_sections/` 下，覆盖所有永久规则
 5. 备份：`context_pack.json`（2927t, 86.3%压缩，包含规则0-8+齿轮+禁令+准则）
 6. 这条规则写入系统设定，所有非首次对话强制执行
 

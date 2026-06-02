@@ -1,18 +1,18 @@
 [
   {
     "path": "AGENTS.md",
-    "size": 8794,
-    "sha256": "fb10f20a8e410b50"
+    "size": 8674,
+    "sha256": "0960c722a673be22"
   },
   {
     "path": "README.md",
-    "size": 11349,
-    "sha256": "0e9b3265ea70dcce"
+    "size": 11757,
+    "sha256": "ae06cc011ffe1769"
   },
   {
     "path": "SOUL.md",
-    "size": 15503,
-    "sha256": "5fab428693ab6f41"
+    "size": 15440,
+    "sha256": "a99160362157f700"
   },
   {
     "path": "agent/model_router.py",
@@ -56,8 +56,8 @@
   },
   {
     "path": "crontab.txt",
-    "size": 5657,
-    "sha256": "05c4a0f0ce6ae4a0"
+    "size": 5338,
+    "sha256": "1325cdc59e501ce9"
   },
   {
     "path": "deploy.py",
@@ -140,279 +140,9 @@
     "sha256": "da39288d14053a00"
   },
   {
-    "path": "reports/compression_version.json",
-    "size": 103,
-    "sha256": "1136d8bd6977521d"
-  },
-  {
-    "path": "reports/context_auto_assoc.json",
-    "size": 4468,
-    "sha256": "d3a472e0339090d3"
-  },
-  {
     "path": "reports/context_index.json",
-    "size": 4090,
-    "sha256": "c5bf1c6c2a546d91"
-  },
-  {
-    "path": "reports/context_pack.json",
-    "size": 1217,
-    "sha256": "2d7af611601a19b1"
-  },
-  {
-    "path": "reports/context_sections/0__.md",
-    "size": 125,
-    "sha256": "902d6893ef8a4637"
-  },
-  {
-    "path": "reports/context_sections/5.md",
-    "size": 218,
-    "sha256": "508f6258e1c2faa0"
-  },
-  {
-    "path": "reports/context_sections/5大行为准则.md",
-    "size": 218,
-    "sha256": "508f6258e1c2faa0"
-  },
-  {
-    "path": "reports/context_sections/8__.md",
-    "size": 718,
-    "sha256": "4f76a186fa4185a7"
-  },
-  {
-    "path": "reports/context_sections/8条永久规则_压缩版_.md",
-    "size": 718,
-    "sha256": "4f76a186fa4185a7"
-  },
-  {
-    "path": "reports/context_sections/_05skill_manage.md",
-    "size": 336,
-    "sha256": "aef86472c2143172"
-  },
-  {
-    "path": "reports/context_sections/_1.md",
-    "size": 285,
-    "sha256": "1cbe3484ae9bdaaa"
-  },
-  {
-    "path": "reports/context_sections/_20260531__.md",
-    "size": 6127,
-    "sha256": "a4137b8763e7bd9a"
-  },
-  {
-    "path": "reports/context_sections/__20260531__.md",
-    "size": 395,
-    "sha256": "6e43d6905992afc6"
-  },
-  {
-    "path": "reports/context_sections/___.md",
-    "size": 366,
-    "sha256": "ca55cde464d3bb69"
-  },
-  {
-    "path": "reports/context_sections/_g8.md",
-    "size": 147,
-    "sha256": "38a5e3bfca591a2c"
-  },
-  {
-    "path": "reports/context_sections/_hymemory_p0_v20_llm_.md",
-    "size": 1689,
-    "sha256": "79aca8a329c1c184"
-  },
-  {
-    "path": "reports/context_sections/_llm.md",
-    "size": 322,
-    "sha256": "e6366cfb4dac0b8e"
-  },
-  {
-    "path": "reports/context_sections/_skills组合并行链式调用规则_格林主人最高指令_20260524固化_.md",
-    "size": 1427,
-    "sha256": "540e65ba770ffa2a"
-  },
-  {
-    "path": "reports/context_sections/_低分数据自动清理规则_格林主人最高指令_20260524固化_.md",
-    "size": 1061,
-    "sha256": "680cce8362197a99"
-  },
-  {
-    "path": "reports/context_sections/_备份规则.md",
-    "size": 407,
-    "sha256": "d80c43eef36cf0db"
-  },
-  {
-    "path": "reports/context_sections/_强制声明以下是hermes的底层设定在所有对话所有会话所有上下文中永久生效.md",
-    "size": 3557,
-    "sha256": "27e1566dc91f7993"
-  },
-  {
-    "path": "reports/context_sections/_强制步骤05每次skill_manage后自动验证门.md",
-    "size": 336,
-    "sha256": "aef86472c2143172"
-  },
-  {
-    "path": "reports/context_sections/_强制步骤1每次任务开始前全局检索.md",
-    "size": 285,
-    "sha256": "1cbe3484ae9bdaaa"
-  },
-  {
-    "path": "reports/context_sections/_章节索引_按需读取完整内容_.md",
-    "size": 366,
-    "sha256": "ca55cde464d3bb69"
-  },
-  {
-    "path": "reports/context_sections/_采集质量预筛规则_格林主人最高指令_20260524固化_.md",
-    "size": 948,
-    "sha256": "a4b7cbf8faf5737a"
-  },
-  {
-    "path": "reports/context_sections/_降级透明化llm降级必须明确告知.md",
-    "size": 322,
-    "sha256": "e6366cfb4dac0b8e"
-  },
-  {
-    "path": "reports/context_sections/_齿轮g8强制激活.md",
-    "size": 147,
-    "sha256": "38a5e3bfca591a2c"
-  },
-  {
-    "path": "reports/context_sections/camel_20260531__.md",
-    "size": 213,
-    "sha256": "7c92ef785edb30e0"
-  },
-  {
-    "path": "reports/context_sections/camel安全护栏规则_20260531_固化_.md",
-    "size": 213,
-    "sha256": "7c92ef785edb30e0"
-  },
-  {
-    "path": "reports/context_sections/skill_20260531__.md",
-    "size": 184,
-    "sha256": "33afdc8dcbf92845"
-  },
-  {
-    "path": "reports/context_sections/一核心身份.md",
-    "size": 181,
-    "sha256": "996652d58219ec64"
-  },
-  {
-    "path": "reports/context_sections/七关键文件索引.md",
-    "size": 1642,
-    "sha256": "3dcd0f56e9ed280c"
-  },
-  {
-    "path": "reports/context_sections/三九面人格_略见soul_extended_.md",
-    "size": 368,
-    "sha256": "7ee9d99f80c680c8"
-  },
-  {
-    "path": "reports/context_sections/三层反思结构化规则_20260531_固化_.md",
-    "size": 213,
-    "sha256": "5c01e9095b447d0f"
-  },
-  {
-    "path": "reports/context_sections/上下文压缩规则.md",
-    "size": 613,
-    "sha256": "5aa134fb85483081"
-  },
-  {
-    "path": "reports/context_sections/中断任务.md",
-    "size": 387,
-    "sha256": "98f04f2fd3e2e699"
-  },
-  {
-    "path": "reports/context_sections/九_oi项目全量优化增强方案固化_格林主人最高指令_20260524_固化_.md",
-    "size": 9492,
-    "sha256": "6ec45a44ad344b21"
-  },
-  {
-    "path": "reports/context_sections/二永久禁令_格林主人最高指令_.md",
-    "size": 897,
-    "sha256": "bac3a3553b4d394d"
-  },
-  {
-    "path": "reports/context_sections/五multiagent调度.md",
-    "size": 619,
-    "sha256": "b2c5d461ce09c73d"
-  },
-  {
-    "path": "reports/context_sections/八_七条永久执行规则_格林主人最高指令_20260523_固化_.md",
-    "size": 6162,
-    "sha256": "ba1906ed9adf3e6d"
-  },
-  {
-    "path": "reports/context_sections/六pipeline_v4_流水线_项目级产物_.md",
-    "size": 1047,
-    "sha256": "e46e571ac768e2cc"
-  },
-  {
-    "path": "reports/context_sections/四5大行为准则.md",
-    "size": 823,
-    "sha256": "7478a5e703aa9cd2"
-  },
-  {
-    "path": "reports/context_sections/复盘反思规则_格林主人最高指令_20260531_固化_.md",
-    "size": 395,
-    "sha256": "6e43d6905992afc6"
-  },
-  {
-    "path": "reports/context_sections/工具.md",
-    "size": 354,
-    "sha256": "b7ff3684736e0823"
-  },
-  {
-    "path": "reports/context_sections/执行质量墙规则_20260531_固化_.md",
-    "size": 175,
-    "sha256": "fa71bde2f4663953"
-  },
-  {
-    "path": "reports/context_sections/推送系统优化规则_20260531_固化_.md",
-    "size": 6127,
-    "sha256": "a4137b8763e7bd9a"
-  },
-  {
-    "path": "reports/context_sections/永久禁令.md",
-    "size": 1644,
-    "sha256": "4e05f0c50e6928b8"
-  },
-  {
-    "path": "reports/context_sections/自动调优规则_20260531_固化_.md",
-    "size": 241,
-    "sha256": "a186e3f036199a88"
-  },
-  {
-    "path": "reports/context_sections/规则0_自主基线_.md",
-    "size": 125,
-    "sha256": "902d6893ef8a4637"
-  },
-  {
-    "path": "reports/context_sections/证据驱动skill进化规则_20260531_固化_.md",
-    "size": 184,
-    "sha256": "33afdc8dcbf92845"
-  },
-  {
-    "path": "reports/context_sections/长链任务上下文管理_hymemory_p0_.md",
-    "size": 783,
-    "sha256": "e059cc8645830d00"
-  },
-  {
-    "path": "reports/context_sections/长链任务上下文管理_hymemory_p0_v20_llm全驱动_.md",
-    "size": 1689,
-    "sha256": "79aca8a329c1c184"
-  },
-  {
-    "path": "reports/context_sections/零_齿轮强制恢复协议_v31__互啮互审8步硬编码_不可绕过_.md",
-    "size": 4663,
-    "sha256": "cb1016a37a713cdb"
-  },
-  {
-    "path": "reports/cross_session_cache.json",
-    "size": 190,
-    "sha256": "9abe561a4dd283dd"
-  },
-  {
-    "path": "reports/surgical_context.json",
-    "size": 2182,
-    "sha256": "aca6d5815f9d4ba5"
+    "size": 5300,
+    "sha256": "5a832d06371e3578"
   },
   {
     "path": "scripts/agent_company_engine.py",
@@ -713,5 +443,35 @@
     "path": "scripts/wake_injector.py",
     "size": 8223,
     "sha256": "139d0e35a61b4381"
+  },
+  {
+    "path": "reports/context_sections/01_核心底层规则.md",
+    "size": 6651,
+    "sha256": "a13d93d7328b28da"
+  },
+  {
+    "path": "reports/context_sections/02_执行与复盘.md",
+    "size": 8703,
+    "sha256": "5d03314fbe575e19"
+  },
+  {
+    "path": "reports/context_sections/03_行为与安全.md",
+    "size": 1605,
+    "sha256": "83ad08cd215efb96"
+  },
+  {
+    "path": "reports/context_sections/04_记忆与上下文.md",
+    "size": 4497,
+    "sha256": "904fe852518e55e1"
+  },
+  {
+    "path": "reports/context_sections/05_调优与技能.md",
+    "size": 11083,
+    "sha256": "20bbfac6d580f573"
+  },
+  {
+    "path": "reports/context_sections/06_专题.md",
+    "size": 18175,
+    "sha256": "699d3d406990fb43"
   }
 ]
